@@ -4,7 +4,7 @@ import MainHeader from "./MainHeader";
 
 export default function MainLayout() {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full overflow-x-hidden">
       <MainHeader />
       <Outlet />
       <div className="flex-1" />
