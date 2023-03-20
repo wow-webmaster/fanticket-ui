@@ -3,9 +3,12 @@ import { useEffect } from "react";
 import { trackWindowScroll } from "react-lazy-load-image-component";
 import Logo from "../../components/Logo";
 import MenuItem from "../../components/MenuItem";
+import useAuth from "../../hooks/useAuth";
 import useOffSetTop from "../../hooks/useOffSetTop";
+import UserPopover from "./UserPopover";
 
 export default function MainHeader() {
+  const {user, isAuthenticated, logout} = useAuth();
   const isScrolled = useOffSetTop(10);
   return (
     <div
@@ -24,9 +27,14 @@ export default function MainHeader() {
         </button>
         <div className="md:flex gap-1 items-center hidden">
           <MenuItem href="#">How it works</MenuItem>
-          <MenuItem href="#" className="w-20 text-center">
+          {isAuthenticated && (
+            <UserPopover user={user} logout = {logout} />
+          ) ||
+            <MenuItem href="#" className="w-20 text-center">
             <label className="cursor-pointer" htmlFor = "auth-modal-check">Login</label>
           </MenuItem>
+          }
+          
           <button className="btn btn-outline btn-primary py-1 px-8 text-lg">
             Sell ticket
           </button>

@@ -12,11 +12,9 @@ export default function useOffSetTop(top) {
       } else {
         setOffSetTop(false);
       }
-      console.log("handle......")
     };
     window.addEventListener("scroll", handle);
     return () => {
-      console.log("remove")
       window.removeEventListener("scroll", handle);
     };
   }, [isTop]);

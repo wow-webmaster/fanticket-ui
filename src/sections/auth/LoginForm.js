@@ -23,8 +23,8 @@ export default function LoginForm() {
     const result = await login(data.email, data.password);
     
     if (result.user) {
-      
-      navigate("/", { replace: true });
+      window.location.reload(true);
+
     }
     setLoading(false);
   };

@@ -79,20 +79,21 @@ function AuthProvider({ children }) {
   const initialize = async () => {
     try {
       const accessToken = window.localStorage.getItem("accessToken");
+
       if (accessToken && isValidToken(accessToken)) {
+
         setSession(accessToken);
         // const response = await axios.get("/api/auth/my-account");
 
-
         const response = {
             data: {
-              accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ODY0YzcxNy01ODdkLTQ3MmEtOTI5YS04ZTVmMjk4MDI0ZGEtMCIsImlhdCI6MTY3ODE3NTE3NSwiZXhwIjoxNjc4NDM0Mzc1fQ.A7uapNgwyoCOR-JdLBYvq7Kq4Wvx1NL7owjVfLZXh3o",
+              accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NzkzNTAwNjksImV4cCI6MTcxMDg4NjA2OSwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20ifQ.xwZKabPX_FJ-Pfd-fNfhsqM2X9-SrbKD5qJRFmX07GU",
               user: {
                 "id": "8864c717-587d-472a-929a-8e5f298024da-0",
                 "displayName": "Jaydon Frankie",
                 "email": 'usermail@bio.com',
                 "password": "demo1234",
-                "photoURL": "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_default.jpg",
+                "avatar": "	https://randomuser.me/api/portraits/men/0.jpg",
                 "phoneNumber": "+40 777666555",
                 "country": "United States",
                 "address": "90210 Broadway Blvd",
@@ -138,7 +139,7 @@ function AuthProvider({ children }) {
   };
 
   useEffect(() => {
-    console.log("--------------iniitalize user information -------------------");
+    console.log("--------------iniitalize user -------------------");
     initialize();
   }, []);
 
@@ -150,13 +151,13 @@ function AuthProvider({ children }) {
     //   });
       const response = {
         data: {
-          accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ODY0YzcxNy01ODdkLTQ3MmEtOTI5YS04ZTVmMjk4MDI0ZGEtMCIsImlhdCI6MTY3ODE3NTE3NSwiZXhwIjoxNjc4NDM0Mzc1fQ.A7uapNgwyoCOR-JdLBYvq7Kq4Wvx1NL7owjVfLZXh3o",
+          accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NzkzNTAwNjksImV4cCI6MTcxMDg4NjA2OSwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20ifQ.xwZKabPX_FJ-Pfd-fNfhsqM2X9-SrbKD5qJRFmX07GU",
           user: {
             "id": "8864c717-587d-472a-929a-8e5f298024da-0",
             "displayName": "Jaydon Frankie",
             "email": email,
             "password": "demo1234",
-            "photoURL": "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_default.jpg",
+            "avatar": "	https://randomuser.me/api/portraits/men/0.jpg",
             "phoneNumber": "+40 777666555",
             "country": "United States",
             "address": "90210 Broadway Blvd",
@@ -169,8 +170,8 @@ function AuthProvider({ children }) {
           }
         }
       }
-      const { token, user } = response.data;
-      setSession(token);
+      const { accessToken, user } = response.data;
+      setSession(accessToken);
       
       dispatch({
         type: "LOGINED",

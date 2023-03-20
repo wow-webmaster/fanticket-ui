@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import styled from "styled-components";
+import useAuth from "../../hooks/useAuth";
 import { LoginForm } from "../../sections/auth";
 
 const BlurModalBox = styled.div`
@@ -11,6 +13,7 @@ const BlurModalBox = styled.div`
 `;
 
 export default function Login() {
+ 
   return (
     <>
       <input type="checkbox" id="auth-modal-check" className="modal-toggle" />

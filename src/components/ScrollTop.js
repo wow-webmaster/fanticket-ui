@@ -22,7 +22,6 @@ export default function ScrollTop() {
       behavior: "smooth",
     });
   };
-  console.log(offsetTop);
   return (
     <>
       <div
