@@ -1,0 +1,36 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    container: {
+      center: true,
+    },
+    extend: {
+      aspectRatio: {
+        "3/4": "3/4",
+      },
+    },
+  },
+  plugins: [require("daisyui"), require("@tailwindcss/typography")],
+  daisyui: {
+    themes: [
+      {
+        coffee: {
+          ...require("daisyui/src/colors/themes")["[data-theme=coffee]"],
+          primary: "#f2b705",
+          secondary: "#0f766e",
+          accent: "#4ade80",
+          neutral: "#151515",
+          "base-100": "#1c1c1c",
+          "base-200": "#2c2c2c",
+
+          info: "#2563eb",
+          success: "#3ec200",
+          warning: "#FFD25F",
+          error: "#fd364d",
+          "--bc": "36.667 8.3333% 100%",
+        },
+      },
+    ],
+  },
+};
