@@ -7,16 +7,16 @@ export default function Logo({
 }) {
   return (
     <div>
-      {(disableLink && <LazyLoadImage src="/images/logo/logo-full.png" />) || (
+      {(disableLink && <LazyLoadImage alt = "logo-full" width={'100%'} height={'100%'} src="/images/logo/logo-full.png" />) || (
         <Link to="/">
           {direction === "horizontal" && (
-            <LazyLoadImage src="/images/logo/logo-full.png" alt="logo-horizontal"/>
+            <LazyLoadImage src="/images/logo/logo-full.png" alt="logo-horizontal" width={'100%'} height={'100%'}/>
           )}
           {direction === "vertical" && (
-            <LazyLoadImage src="/images/logo/logo-full-vertical.png" alt="logo-vertical"/>
+            <LazyLoadImage src="/images/logo/logo-full-vertical.png" alt="logo-vertical" width={'100%'} height={'100%'}/>
           )}
           {direction === "logoOnly" && (
-            <LazyLoadImage src="/images/logo/logo-image.png" alt="logo-only" />
+            <LazyLoadImage src="/images/logo/logo-image.png" alt="logo-only"  width={'100%'} height={'100%'}/>
           )}
         </Link>
       )}

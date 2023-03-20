@@ -5,7 +5,14 @@ export default function WhyUseSection() {
   return (
     <div className="container flex-col flex gap-12">
       <div className="flex gap-4 justify-center items-center">
-        <img src="/images/background/ticket-logo-icon.png" alt="ticketlogo" />
+        <div>
+          <img
+            src="/images/background/ticket-logo-icon.png"
+            alt="ticketlogo"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
+
         <div className="prose lg:prose-lg">
           <h1>
             {" "}
@@ -31,7 +38,7 @@ export default function WhyUseSection() {
               <Icon icon="uil:money-withdraw" />
             </div>
             <label className="text-center">
-            O comprador confia pois o pagamento é
+              O comprador confia pois o pagamento é
               <br /> liberado após a realização do evento
             </label>
           </TicketCard>
@@ -42,8 +49,8 @@ export default function WhyUseSection() {
               <Icon icon="mdi:user-multiple" />
             </div>
             <label className="text-center">
-            Segurança e conveniência para
-              <br />  vendedores e compradores
+              Segurança e conveniência para
+              <br /> vendedores e compradores
             </label>
           </TicketCard>
         </div>

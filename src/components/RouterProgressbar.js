@@ -1,4 +1,5 @@
 import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 import { useEffect, useMemo } from 'react';
 
 export default function RouterProgressBar() {
@@ -11,7 +12,7 @@ export default function RouterProgressBar() {
   }, []);
 
   useEffect(() => {
-    console.log("heere.. load progress");
+    // console.log("heere.. load progress");
     NProgress.done();
   }, []);
 

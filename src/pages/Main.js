@@ -1,16 +1,13 @@
 import Page from "../components/Page";
 import ScrollTop from "../components/ScrollTop";
+import { BannerSection, CategoryListSection, CustomerReviews, LocationEventSection, NextEventSection, WhyUseSection } from "../sections/main";
+import Login from "./auth/Login";
 
-import BannerSection from "../sections/main/BannerSection";
-import CategoryListSection from "../sections/main/CategoryListSection";
-import CustomerReviews from "../sections/main/CustomerReviews";
-import LocationEventSection from "../sections/main/LocationEventSection";
-import NextEventSection from "../sections/main/NextEventSection";
-import WhyUseSection from "../sections/main/WhyUseSection";
+ 
 
 export default function Main() {
   return (
-    <Page title={""}>
+    <Page title={"Fanticket"}>
     
       <div className="flex flex-col p-2">
         <BannerSection />
@@ -27,6 +24,7 @@ export default function Main() {
         <div className="h-6"></div>
         <CustomerReviews />
       </div>
+      <Login />
     </Page>
   );
 }

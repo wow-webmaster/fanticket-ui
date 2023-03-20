@@ -78,11 +78,23 @@ export default function MainFooter() {
               <div className="md:col-span-2 flex gap-4 flex-col md:flex-row">
                 <div className="flex gap-2 items-center">
                   <label>Desenhado por:</label>
-                  <img src="/images/footer/designer-logo.png" alt = "desinger"/>
+                  <div>
+                    <img
+                      src="/images/footer/designer-logo.png"
+                      alt="desinger"
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
                 </div>
                 <div className="flex gap-2  items-center">
                   <label>Desenvolvido por:</label>
-                  <img src="/images/footer/developer-logo.png" alt = "developr"/>
+                  <div>
+                    <img
+                      src="/images/footer/developer-logo.png"
+                      alt="developr"
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -90,7 +102,10 @@ export default function MainFooter() {
         </div>
       </RootStyle>
       <div
-        style={{ backgroundImage: "url(/images/background/footer-bg.png)", backgroundSize:'contain', }}
+        style={{
+          backgroundImage: "url(/images/background/footer-bg.png)",
+          backgroundSize: "contain",
+        }}
         className={"w-1/5 h-1/4 absolute right-0 top-40 bg-no-repeat"}
       ></div>
     </div>

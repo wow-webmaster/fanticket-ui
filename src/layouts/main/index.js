@@ -9,6 +9,7 @@ export default function MainLayout() {
       <Outlet />
       <div className="flex-1" />
       <MainFooter />
+      
     </div>
   );
 }
