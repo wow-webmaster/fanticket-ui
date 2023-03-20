@@ -9,15 +9,18 @@ import { HelmetProvider } from "react-helmet-async";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import ScrollTop from "./components/ScrollTop";
+import { AuthProvider } from "./contexts/JWTContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <HelmetProvider>
-    <BrowserRouter>
-      <ScrollTop />
-      <App />
-    </BrowserRouter>
-  </HelmetProvider>
+  <AuthProvider>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ScrollTop />
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
+  </AuthProvider>
 );
 
 // If you want your app to work offline and load faster, you can change

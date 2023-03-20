@@ -1,19 +1,33 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GradientBorderWrapper from "../../components/GradientBorderWrapper";
+import useAuth from "../../hooks/useAuth";
 
 export default function LoginForm() {
+  const { login } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: useMemo(() => {
       return {
         email: "",
-        username: "",
+        // username: "",
         password: "",
-      };
+      };  
     }, []),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    setLoading(true);
+
+    const result = await login(data.email, data.password);
+    
+    if (result.user) {
+      
+      navigate("/", { replace: true });
+    }
+    setLoading(false);
+  };
 
   return (
     <div className="w-full p-4">
@@ -21,7 +35,7 @@ export default function LoginForm() {
       <div className="divider">OR</div>
       <FormProvider>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="w-full flex flex-col gap-2 mb-4">
+          <div className="w-full flex flex-col gap-4 mb-4">
             <GradientBorderWrapper>
               <input
                 placeholder="Entre com seu e-mail aqui"
@@ -29,13 +43,7 @@ export default function LoginForm() {
                 className="input input-ghost rounded-xl w-full"
               />
             </GradientBorderWrapper>
-            <GradientBorderWrapper>
-              <input
-                placeholder="Nome de usuário"
-                {...register("username")}
-                className="input input-ghost rounded-xl w-full"
-              />
-            </GradientBorderWrapper>
+
             <GradientBorderWrapper>
               <input
                 placeholder="Senha"
@@ -56,7 +64,14 @@ export default function LoginForm() {
             </Link>
           </div>
           <div className="w-full flex flex-col gap-4 text-center">
-            <button className="btn btn-primary rounded-xl capitalize">Fazer login</button>
+            <button
+              type="submit"
+              className={`${
+                loading ? "loading" : ""
+              } btn btn-primary rounded-xl capitalize`}
+            >
+              Fazer login
+            </button>
             <label>
               Ainda não tem uma conta?{" "}
               <Link to="">

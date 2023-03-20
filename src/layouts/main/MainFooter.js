@@ -50,7 +50,7 @@ export default function MainFooter() {
                   Política de Privacidade
                 </MenuItem>
               </div>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 z-10">
                 <a className="text-2xl">Redes Sociais</a>
                 <div className="flex gap-2 mb-8">
                   <a className="btn btn-circle btn-outline btn-primary">
