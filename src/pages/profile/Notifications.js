@@ -24,7 +24,7 @@ export default function Notifications() {
             {/* <SimpleBar style={{ maxHeight: "50vh" }}> */}
             {NOTIFICATIONS.map((n, index) => (
               <div
-                className={`alert alert-${n.type} shadow-lg mb-2 grayscale-[70%]`}
+                className={`alert ${n?.type === "success"?"alert-success":(n?.type==="error"?"alert-error":"alert-warning")} shadow-lg mb-2 grayscale-[70%]`}
                 key={index}
               >
                 <div className="flex w-full justify-between items-start md:items-center flex-col md:flex-row">
@@ -61,6 +61,9 @@ export default function Notifications() {
               </div>
             ))}
             {/* </SimpleBar> */}
+          </div>
+          <div className="flex justify-center ">
+            <a href="#" className="text-primary capitalize">{t('action.show_more')}</a>
           </div>
         </div>
       </PageBanner>
