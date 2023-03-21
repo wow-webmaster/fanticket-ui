@@ -174,6 +174,10 @@ export default function BasicProfile() {
               </div>
             </GradientBorderWrapper>
           </div>
+          <div className="flex justify-center gap-4 w-full max-w-xl mb-8">
+            <a href = "#" className="underline text-primary">Exportar meus dados</a>
+            <a href = "#" className="underline text-error">Remover minha conta</a>
+          </div>
         </div>
       </div>
     </Page>

@@ -1,0 +1,13 @@
+{
+  "title": {
+    "menu": {
+      "alert": "Ticket Alert",
+      "profile": "Profile",
+      "logout": "Logout",
+      "event": "Saved Events",
+      "conversation": "Conversations",
+      "payout": "Payouts",
+      "notification": "Notifications"
+    }
+  }
+}

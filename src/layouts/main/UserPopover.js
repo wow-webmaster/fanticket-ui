@@ -1,6 +1,9 @@
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 export default function UserPopover({ user, logout = () => {} }) {
+  const { t } = useTranslation();
   return (
     <div className="dropdown">
       <div className="flex gap-2 px-2 items-center cursor-pointer" tabIndex={0}>
@@ -23,29 +26,29 @@ export default function UserPopover({ user, logout = () => {} }) {
         </li>
         <div className="divider h-1" />
         <li>
-          <a href="/">Ticket Alert</a>
+          <a href="/">{t("title.menu.alert")}</a>
         </li>
         <li>
-          <a href="/">Saved Events</a>
+          <a href="/">{t("title.menu.event")}</a>
         </li>
         <li>
-          <a href="/profile">Profile</a>
+          <Link to="/profile">{t("title.menu.profile")}</Link>
         </li>
         <li>
-          <a href="/">Conversations</a>
+          <a href="/">{t("title.menu.conversation")}</a>
         </li>
         <li>
-          <a href="/">Payouts</a>
+          <a href="/">{t("title.menu.payout")}</a>
         </li>
         <li>
-
-          <a href="/">Notifications 
-          <span className="badge badge-error">2</span>
+          <a href="/">
+            {t("title.menu.notification")} 
+            <span className="badge badge-error">2</span>
           </a>
         </li>
         <div className="divider h-1" />
         <li onClick={() => logout()}>
-          <a href="/">Logout</a>
+          <a href="/">{t("title.menu.logout")}</a>
         </li>
       </ul>
     </div>
