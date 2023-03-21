@@ -1,5 +1,5 @@
-import MainBanner from "../../components/MainBanner";
-import SearchComponent from "../../components/SearchComponent";
+import MainBanner from "../../components/wrappers/MainBanner";
+import SearchComponent from "../../components/form/SearchComponent";
 
 export default function BannerSection() {
   return (

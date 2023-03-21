@@ -41,10 +41,10 @@ export default function UserPopover({ user, logout = () => {} }) {
           <a href="/">{t("title.menu.payout")}</a>
         </li>
         <li>
-          <a href="/">
-            {t("title.menu.notification")} 
+          <Link to="/profile/notifications">
+            {t("title.menu.notification")}
             <span className="badge badge-error">2</span>
-          </a>
+          </Link>
         </li>
         <div className="divider h-1" />
         <li onClick={() => logout()}>

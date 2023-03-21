@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import NextEventCard from "../../components/NextEventCard";
+import NextEventCard from "../../components/cards/NextEventCard";
 import { NEXT_EVENTS } from "../../_mocks";
 
 const NextEventBackground = styled.div`

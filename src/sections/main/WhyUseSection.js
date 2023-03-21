@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import TicketCard from "../../components/TicketCard";
+import TicketCard from "../../components/cards/TicketCard";
 
 export default function WhyUseSection() {
   return (

@@ -98,5 +98,28 @@ export const CUSTOMERS = [
     
 ]
 
+export const NOTIFICATIONS = [
+    {
+        _id:"123-123",
+        type:"success",
+        message:"Your purchase has been confirmed!",
+        read:true,
+        date:new Date(),   
+    },
+    {
+        _id:"123-124",
+        type:"error",
+        message:"Error! Task failed successfully.",
+        read:false,
+        date:new Date(),   
+    },
+    {
+        _id:"123-125",
+        type:"warning",
+        message:"Warning: Invalid email address!",
+        read:true,
+        date:new Date(),   
+    },
+]
 
 

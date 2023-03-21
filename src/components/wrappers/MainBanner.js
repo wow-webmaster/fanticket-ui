@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import SearchComponent from "./SearchComponent";
+import SearchComponent from "../form/SearchComponent";
 
-const PageBannerBackground = styled.div`
+const BannerBackground = styled.div`
   margin: -8px;
   display: flex;
   align-items: flex-end;
@@ -19,18 +19,18 @@ const PageBannerBackground = styled.div`
     position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
-    -webkit-filter: grayscale(100%) blur(17.5px);
-    filter: grayscale(100%)  blur(17.5px);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
     background-position: center;
     width: 100%;
     height: 100%;
   }
 `;
 
-export default function PageBanner(props) {
+export default function MainBanner(props) {
   return (
     <div className="w-full">
-      <PageBannerBackground className="pt-44">{props.children}</PageBannerBackground>
+      <BannerBackground className="pt-48">{props.children}</BannerBackground>
     </div>
   );
 }

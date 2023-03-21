@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
-import NextEventCard from "../../components/NextEventCard";
+import NextEventCard from "../../components/cards/NextEventCard";
 import { CATEGORY_LIST, NEXT_EVENTS } from "../../_mocks";
 
 const CategoryCard = ({ category, index, isAddition = false }) => {

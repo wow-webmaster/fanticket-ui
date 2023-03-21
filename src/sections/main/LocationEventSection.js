@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import TicketImageCard from "../../components/TicketImageCard";
+import TicketImageCard from "../../components/cards/TicketImageCard";
 import { CATEGORY_LIST, NEXT_EVENTS } from "../../_mocks";
 
 export default function LocationEventSection() {

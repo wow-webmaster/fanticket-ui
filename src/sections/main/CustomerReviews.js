@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import styled from "styled-components";
-import CustomerReviewCard from "../../components/CustomerReviewCard";
+import CustomerReviewCard from "../../components/cards/CustomerReviewCard";
 import { CUSTOMERS } from "../../_mocks";
 
 const RootStyle = styled.div`

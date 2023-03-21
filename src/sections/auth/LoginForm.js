@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import GradientBorderWrapper from "../../components/GradientBorderWrapper";
+import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 import useAuth from "../../hooks/useAuth";
 
 export default function LoginForm() {

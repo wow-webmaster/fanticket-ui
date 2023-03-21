@@ -1,5 +1,6 @@
 {
   "title": {
+    
     "menu": {
       "alert": "Ticket Alert",
       "profile": "Profile",
@@ -8,6 +9,31 @@
       "conversation": "Conversations",
       "payout": "Payouts",
       "notification": "Notifications"
-    }
+    },
+    "modal":{
+      "change_email":"Mude o e-mail",
+      "change_phone":"Mude o Phone",
+      "verify_otp":"Verificação OTP"
+    },
+    "current_email":"Atual Email",
+    "current_phone":"Atual Phone",
+    "new_email":"Novo Email",
+    "new_phone":"Novo Phone"
+
+  },
+  "description":{
+    "change_email":"Para alterar seu e-mail, enviaremos um e-mail de confirmação para verificar seu endereço de e-mail.",
+    "change_phone":"Para alterar seu phone, enviaremos um phonenumber de confirmação para verificar seu endereço de SMS.",
+    "already_sent_otp":"Já enviamos o código OTP para {{address}}, verifique e confirme.",
+    "still_not_receive":"Ainda não recebeu?",
+    "input_your_email":"Input your email address",
+    "input_your_phone":"Input your phone number"
+  },
+  "action":{
+    "send":"Enviar",
+    "verify":"Verificar",
+    "back":"Voltar",
+    "resend":"Reenviar",
+    "edit":"Editar"
   }
 }

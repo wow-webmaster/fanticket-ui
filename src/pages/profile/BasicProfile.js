@@ -1,17 +1,22 @@
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 import GradientBorderWrapper, {
   Divider,
-} from "../../components/GradientBorderWrapper";
+} from "../../components/wrappers/GradientBorderWrapper";
 import Page from "../../components/Page";
-import PageBanner from "../../components/PageBanner";
+import PageBanner from "../../components/wrappers/PageBanner";
 import useAuth from "../../hooks/useAuth";
+import ChangeEmailDialog from "../../sections/profile/ChangeEmail";
+import OtpVerifyDialog from "../../sections/profile/VerifyCode";
+import ChangePhoneDialog from "../../sections/profile/ChangePhone";
 
 export default function BasicProfile() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   return (
     <Page title="Profile">
       <PageBanner>
-        <div className="container mb-8">
+        <div className="container mb-8 ">
           <div className="flex flex-col gap-8 items-center p-2">
             {/* avatar  */}
             <div className="flex flex-col items-center mb-4">
@@ -50,9 +55,26 @@ export default function BasicProfile() {
                       className="text-success"
                     />
                   </div>
-                  <a className="text-primary" href="#">
-                    Editar
-                  </a>
+                  <div className="flex gap-4">
+                    <a className="text-primary" href="#">
+                      <label
+                        htmlFor="email-modal-check"
+                        className="cursor-pointer"
+                      >
+                        {t("action.edit")}
+                      </label>
+                    </a>
+
+                    <a className="text-primary" href="#">
+                      <label
+                        htmlFor="email-verify-check"
+                        className="cursor-pointer"
+                      >
+                        {t("action.verify")}
+                      </label>
+                    </a>
+                  </div>
+
                   <Divider cls="mt-1" />
                 </div>
                 {/* phone */}
@@ -64,9 +86,25 @@ export default function BasicProfile() {
                     </label>
                     <Icon icon="octicon:unverified-24" className="text-error" />
                   </div>
-                  <a className="text-primary" href="#">
-                    Editar
-                  </a>
+                  <div className="flex gap-4">
+                    <a className="text-primary" href="#">
+                      <label
+                        htmlFor="phone-modal-check"
+                        className="cursor-pointer"
+                      >
+                        {t("action.edit")}
+                      </label>
+                    </a>
+
+                    <a className="text-primary" href="#">
+                      <label
+                        htmlFor="phone-verify-check"
+                        className="cursor-pointer"
+                      >
+                        {t("action.verify")}
+                      </label>
+                    </a>
+                  </div>
                   <Divider cls="mt-1" />
                 </div>
                 {/* id verification  */}
@@ -158,7 +196,7 @@ export default function BasicProfile() {
                     </label>
                   </div>
                   <a className="text-primary" href="#">
-                    Editar
+                    <label htmlFor="email-modal-check">Editar</label>
                   </a>
                   <Divider cls="-mt-0" />
                 </div>
@@ -175,11 +213,30 @@ export default function BasicProfile() {
             </GradientBorderWrapper>
           </div>
           <div className="flex justify-center gap-4 w-full max-w-xl mb-8">
-            <a href = "#" className="underline text-primary">Exportar meus dados</a>
-            <a href = "#" className="underline text-error">Remover minha conta</a>
+            <a href="#" className="underline text-primary">
+              Exportar meus dados
+            </a>
+            <a href="#" className="underline text-error">
+              Remover minha conta
+            </a>
           </div>
         </div>
       </div>
+      <ChangeEmailDialog user={user} />
+      <ChangePhoneDialog user={user} />
+
+      <OtpVerifyDialog
+        user={user}
+        address={user?.email}
+        id={"email-verify-check"}
+        method="email"
+      />
+      <OtpVerifyDialog
+        user={user}
+        address={user?.phoneNumber}
+        id={"phone-verify-check"}
+        method="phone"
+      />
     </Page>
   );
 }
