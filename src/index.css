@@ -9,3 +9,37 @@ body{
 .input:active, .input:focus {
   outline: none;
 }
+
+/* data time picker  */
+
+.react-datetime-picker__wrapper{
+  border-color: rgb(80,80,80) !important;
+  border-radius: 8px;
+}
+
+.react-datetime-picker__calendar .react-calendar{
+  background:#1c1c1c !important;
+  
+  border-color:#2c2c2c !important;
+}
+.react-calendar__navigation button:enabled:hover, .react-calendar__navigation button:enabled:focus {
+  background-color: #f2b705 !important;
+}
+.react-calendar__tile:enabled:hover, .react-calendar__tile:enabled:focus{
+  background-color: #f2b705 !important;
+}
+.react-calendar__tile--now{
+  background-color: #2c2c2c !important;
+}
+.react-datetime-picker__inputGroup__amPm{
+  background-color: #1c1c1c !important;
+}
+.react-datetime-picker__clock{
+  background-color: #2c2c2c !important;
+}
+.react-datetime-picker__inputGroup{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}

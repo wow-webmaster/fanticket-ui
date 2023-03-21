@@ -39,6 +39,14 @@ export default function Router() {
         { element: <MainPage />, index: true },
         { element: <BasicProfilePage />, path: "profile" },
         { element: <NotificationPage />, path: "profile/notifications" },
+        { element: <AddEventPage />, path: "add-event" },
+      ],
+    },
+    {
+      path: "/event",
+      element: <MainLayout />,
+      children: [
+        { element: <AddEventPage />, path: "add" },
       ],
     },
     // { path: '*', element: <Navigate to="/404" replace /> },
@@ -61,3 +69,5 @@ const BasicProfilePage = Loadable(
 const NotificationPage = Loadable(
   lazy(() => import("../pages/profile/Notifications"))
 );
+//EVENT
+const AddEventPage = Loadable(lazy(() => import("../pages/events/AddEvent")));

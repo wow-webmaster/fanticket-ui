@@ -77,12 +77,12 @@ export default function EventSearchComponent({ small = false }) {
                       {t("message.not_found_event")}
                     </label>
                     <button className="btn btn-primary capitalize">
-                      {(isAuthenticated && (
-                        <label htmlFor="login-modal-check" className="cursor-pointer">
+                      {(!isAuthenticated && (
+                        <label htmlFor="auth-modal-check" className="cursor-pointer">
                           {t("action.register_event")}
                         </label>
                       )) || (
-                        <label  className="cursor-pointer" onClick={()=>{navigate('/')}}>
+                        <label  className="cursor-pointer" onClick={()=>{navigate('/event/add')}}>
                           {t("action.register_event")}
                         </label>
                       )}
