@@ -18,7 +18,8 @@
     "current_email":"Atual Email",
     "current_phone":"Atual Phone",
     "new_email":"Novo Email",
-    "new_phone":"Novo Phone"
+    "new_phone":"Novo Phone",
+    "search_result":"Search Result"
 
   },
   "description":{
@@ -35,6 +36,10 @@
     "back":"Voltar",
     "resend":"Reenviar",
     "edit":"Editar",
-    "show_more":"Mostre mais"
+    "show_more":"Mostre mais",
+    "register_event":"Registrar Novo Evento"
+  },
+  "message":{
+    "not_found_event":"No results found. Search for an event, venue or city"
   }
 }

@@ -122,4 +122,54 @@ export const NOTIFICATIONS = [
     },
 ]
 
+export const ALL_EVENTS = [
+    {
+        name:'Warung Tour São Paulo',
+        start:new Date('2023-01-21'),
+        end:new Date('2023-01-24'),
+        city:'Rio',
+        place:'Teatro',
+        ticketCount:13,
+    },
+    {
+        name:'Event Spring Carnival',
+        start:new Date('2023-02-21'),
+        end:new Date('2023-02-21'),
+        city:'São Paulo',
+        place:'Teatro',
+        ticketCount:13,
+    },
+    {
+        name:'Théâtre de Namur',
+        start:new Date('2023-03-28'),
+        end:new Date('2023-03-31'),
+        city:'São Paulo',
+        place:'Teatro',
+        ticketCount:13,
+    },
+    {
+        name:'Eventing Spring Carnival',
+        start:new Date('2023-03-22'),
+        end:new Date('2023-03-22'),
+        city:'São Paulo',
+        place:'Teatro',
+        ticketCount:13,
+    },
+    {
+        name:'Warung Tour São Paulo',
+        start:new Date('2023-03-24'),
+        end:new Date('2023-03-24'),
+        city:'São Paulo',
+        place:'Teatro',
+        ticketCount:13,
+    },
+    {
+        name:'Warung Tour São Paulo',
+        start:new Date('2023-03-31'),
+        end:new Date('2023-04-12'),
+        city:'São Paulo',
+        place:'Teatro',
+        ticketCount:13,
+    },
+];
 
