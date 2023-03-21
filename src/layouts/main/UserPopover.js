@@ -29,7 +29,7 @@ export default function UserPopover({ user, logout = () => {} }) {
           <a href="/">Saved Events</a>
         </li>
         <li>
-          <a href="/">Profile</a>
+          <a href="/profile">Profile</a>
         </li>
         <li>
           <a href="/">Conversations</a>

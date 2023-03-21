@@ -30,7 +30,7 @@ const PageBannerBackground = styled.div`
 export default function PageBanner(props) {
   return (
     <div className="w-full">
-      <PageBannerBackground className="pt-48">{props.children}</PageBannerBackground>
+      <PageBannerBackground className="pt-44">{props.children}</PageBannerBackground>
     </div>
   );
 }

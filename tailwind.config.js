@@ -18,7 +18,7 @@ module.exports = {
         coffee: {
           ...require("daisyui/src/colors/themes")["[data-theme=coffee]"],
           primary: "#f2b705",
-          secondary: "#0f766e",
+          secondary: "#5D4B15",
           accent: "#4ade80",
           neutral: "#151515",
           "base-100": "#1c1c1c",

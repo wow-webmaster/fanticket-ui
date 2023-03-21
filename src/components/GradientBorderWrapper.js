@@ -18,7 +18,13 @@ const GradientBorderStyleWrapper = styled.div`
 export default function GradientBorderWrapper(props) {
   return (
     <GradientBorderStyleWrapper>
-      <div className="w-full rounded-xl " style={{background:'#1C1C1C'}}>{props.children}</div>
+      <div className="w-full rounded-xl " style={{ background: "#1C1C1C" }}>
+        {props.children}
+      </div>
     </GradientBorderStyleWrapper>
   );
 }
+
+export const Divider = ({cls = ''}) => (
+  <div className={`divider overflow-hidden ${cls}`} style={{ height: 1 }} />
+);
