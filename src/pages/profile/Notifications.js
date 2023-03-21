@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SimpleBar from "simplebar-react";
 import Page from "../../components/Page";
 import PageBanner from "../../components/wrappers/PageBanner";
-import { fShortDate } from "../../utils/formatTime";
+import { fShortDate, fToNow } from "../../utils/formatTime";
 import { NOTIFICATIONS } from "../../_mocks";
 
 export default function Notifications() {
@@ -13,18 +13,23 @@ export default function Notifications() {
     <Page title={"Notification"}>
       <PageBanner>
         <div className="container mb-8 max-w-2xl p-4">
-          <div className="flex gap-2 justify-start text-xl">
+          {/* bread cumb */}
+          <div className="flex gap-2 justify-start text-xl mb-8">
             <Link to="/profile">
               <span className="text-primary">{t("title.menu.profile")}</span>
             </Link>
             <label>/</label>
             <label>{t("title.menu.notification")}</label>
           </div>
+          <div className="mb-8">
+          <label className="text-4xl">{t('title.menu.notification')}</label>
+          </div>
+          
           <div className="flex flex-col py-4">
             {/* <SimpleBar style={{ maxHeight: "50vh" }}> */}
             {NOTIFICATIONS.map((n, index) => (
               <div
-                className={`alert ${n?.type === "success"?"alert-success":(n?.type==="error"?"alert-error":"alert-warning")} shadow-lg mb-2 grayscale-[70%]`}
+                className={`alert ${n?.type === "success"?"alert-success":(n?.type==="error"?"alert-error":"alert-warning")} shadow-lg mb-2 `}
                 key={index}
               >
                 <div className="flex w-full justify-between items-start md:items-center flex-col md:flex-row">
@@ -41,7 +46,7 @@ export default function Notifications() {
                     <div>
                       <p>{n?.message}</p>
                       <div className="flex gap-1 items-center">
-                        {fShortDate(n?.date)}
+                        {fToNow(n?.date)}
                         {n.read && <Icon icon="mdi:check-all" />}
                       </div>
                     </div>

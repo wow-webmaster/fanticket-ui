@@ -17,7 +17,7 @@ const SearchWrapper = styled.div`
     linear-gradient(to bottom, #828282, #323232) border-box;
 `;
 
-export default function SearchComponent({small = false}) {
+export default function EventSearchComponent({small = false}) {
   return (
     <SearchWrapper>
       <Icon icon="ri:search-line" width={24} />

@@ -1,5 +1,5 @@
 import MainBanner from "../../components/wrappers/MainBanner";
-import SearchComponent from "../../components/form/SearchComponent";
+import EventSearchComponent from "../../components/form/EventSearchComponent";
 
 export default function BannerSection() {
   return (
@@ -17,7 +17,7 @@ export default function BannerSection() {
           Pagamento seguro com ingresso garantido
         </div>
         <div className="max-w-lg w-full">
-          <SearchComponent />
+          <EventSearchComponent />
         </div>
       </div>
     </MainBanner>

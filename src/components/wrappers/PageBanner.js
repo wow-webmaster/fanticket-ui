@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import SearchComponent from "../form/SearchComponent";
 
 const PageBannerBackground = styled.div`
   margin: -8px;
