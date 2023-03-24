@@ -25,7 +25,7 @@ export default function TicketShareSocial() {
           </div>
           <GradientBorderWrapper>
             <div className="w-full flex px-2 items-center justify-between">
-              <Icon icon="iconoir:facebook"></Icon>
+              <Icon icon="ph:link-simple-bold"></Icon>
 
               <input className="w-full flex-1 input "></input>
               <button className="btn btn-ghost btn-sm btn-circle">

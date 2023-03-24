@@ -38,10 +38,13 @@
     "bank_account":"Detalhes bancários",
     "id_verification":"Verificação de identidade",
     "validate":"Visibilidade",
-    "ticket_share":"Seu anúncio está ativo!"
-    
-
-
+    "ticket_share":"Seu anúncio está ativo!",
+    "ticket_ads_finalize":"Seu anúncio foi criado",
+    "ticket_ads_what":"O que:",
+    "ticket_ads_price":"Preço",
+    "ticket_ads_event_date":"Data do evento",
+    "ticket_ads_location":"Localização",
+    "ticket_ads_transfer":"Será transferido para"
   
 
   },
@@ -65,6 +68,7 @@
     
   },
   "action":{
+    "ads_manage":"Gerencie seu anúncio",
     "copy_link":"Copiar link",
     "send":"Enviar",
     "verify":"Verificar",

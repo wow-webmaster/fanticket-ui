@@ -10,13 +10,14 @@ import TicketNote from "../../sections/ticket/TicketNote";
 import TicketPrice from "../../sections/ticket/TicketPrice";
 import TicketUpload from "../../sections/ticket/TicketUpload";
 import TicketShareSocial from "../../sections/ticket/TicketShareSocial";
+import TicketAds from "../../sections/ticket/TicketAds";
 
 export default function AddTicket() {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const { t } = useTranslation();
   const {user, isAuthenticated} = useAuth();
   const onNext = () => {
-    if (step < 5) {
+    if (step < 7) {
       setStep(step + 1);
     }
   };
@@ -27,19 +28,22 @@ export default function AddTicket() {
     <Page title="Add Ticket">
       <PageBanner>
         <div className="container p-4">
-          {step === 0 && <TicketUpload />}
-          {step === 1 && <TicketNote />}
-          {step === 2 && <TicketPrice />}
-          {step === 3 && <TicketAvatar />}
-          {step === 4 && <TicketFinalize onNext = {onNext} onPrev = {onPrev}/>}
-          {step === 5 && <TicketShareSocial />}
+          {step === 1 && <TicketUpload />}
+          {step === 2 && <TicketNote />}
+          {step === 3 && <TicketPrice />}
+          {step === 4 && <TicketAvatar />}
+          {step === 5 && <TicketFinalize onNext = {onNext} onPrev = {onPrev}/>}
+          {step === 6 && <TicketShareSocial />}
+          {step === 7 && <TicketAds />}
+
           {/* actions */}
-          {step !== 4 && (
+          {step !== 5 && (
             <div className="flex flex-col gap-8 justify-center items-center">
               <div className="max-w-2xl w-full mb-8">
                 <div className="h-6"></div>
 
                 <div className="w-full flex justify-between">
+                  
                   <button
                     className="btn btn-primary btn-outline px-8 capitalize "
                     onClick={onPrev}

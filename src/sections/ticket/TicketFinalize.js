@@ -20,7 +20,7 @@ export default function TicketFinalize({onNext, onPrev}) {
         <h3 className="text-3xl">{t("title.ticket_finalize")}</h3>
         <h6 className="text-stone-400">{t("description.ticket_finalize")}</h6>
         <progress
-          class="progress progress-success w-full"
+          className="progress progress-success w-full"
           value="100"
           max="100"
         ></progress>
@@ -33,7 +33,7 @@ export default function TicketFinalize({onNext, onPrev}) {
               Cada vez que sua lista é criada, fãs serão capazes de <br />
               comprar seus ingressos imediatamente!
             </p>
-            <button class="btn btn-primary btn-sm capitalize">
+            <button className="btn btn-primary btn-sm capitalize">
               {t("action.make_ticket")}
             </button>
           </div>
