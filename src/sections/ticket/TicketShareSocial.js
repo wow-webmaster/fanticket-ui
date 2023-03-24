@@ -14,12 +14,12 @@ export default function TicketShareSocial() {
       <div className="max-w-2xl w-full mb-8 flex flex-col gap-4">
         <div className="flex flex-col  gap-2 justify-between items-center w-full">
           <div className="flex justify-between gap-2 w-full mb-2">
-            <button className="btn btn-primary flex-1">
-              <Icon icon="iconoir:facebook" width={20} />
+            <button className="btn btn-primary flex-1 capitalize">
+              <Icon icon="iconoir:facebook" width={20}  className = {'mr-1 '}/>
               Facebook
             </button>
-            <button className="btn btn-info flex-1">
-              <Icon icon="tabler:brand-twitter" width={20} />
+            <button className="btn btn-secondary flex-1  capitalize">
+              <Icon icon="tabler:brand-twitter" width={20} className = {'mr-1'}/>
               Twitter
             </button>
           </div>
