@@ -2,13 +2,17 @@ import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 
-export default function TicketFinalize() {
+export default function TicketFinalize({onNext, onPrev}) {
   const { t } = useTranslation();
   const onReset = ()=>{
-
+    if(onPrev){
+      onPrev();
+    }
   }
   const onCreateAD = ()=>{
-
+    if(onNext){
+      onNext();
+    }
   }
   return (
     <div className="flex flex-col gap-8 justify-center items-center">
@@ -103,7 +107,7 @@ export default function TicketFinalize() {
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.phone_number")}</h5>
               <p className="text-stone-500 text-sm">+5551999999999</p>
-              <span className="text-primary underline">{t("action.edit")}</span>
+              <label htmlFor="phone-modal-check" className="text-primary underline cursor-pointer">{t("action.edit")}</label>
             </div>
             <Icon
               icon="material-symbols:check-small-rounded"
@@ -135,7 +139,7 @@ export default function TicketFinalize() {
               <p className="text-stone-500 text-sm">Público em FanTicket</p>
               <span className="text-primary underline">{t("action.edit")}</span>
             </div>
-            <img src="/images/logo/logo-image.png" className="w-6 h-6" />
+            <img src="/images/logo/logo-image.png" className="w-6 h-6" alt= "" />
           </div>
         </GradientBorderWrapper>
       </div>

@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 import { BlurModalBox } from "../../components/StyledComponents";
-import {  useState } from "react";
+import { useState } from "react";
 import OtpInputCompoent from "../../components/form/OtpInputComponent";
 
-export default function ChangePhoneDialog({ user }) {
+export default function ChangePhoneDialog({ user, isAdditionalPhone = false }) {
   const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const [newPhoneNumber, setNewPhoneNumber] = useState("");
@@ -21,7 +21,6 @@ export default function ChangePhoneDialog({ user }) {
     setOtp(value);
   };
 
- 
   return (
     <>
       <input type="checkbox" id="phone-modal-check" className="modal-toggle" />
@@ -45,10 +44,17 @@ export default function ChangePhoneDialog({ user }) {
                 <label className="text-stone-400">
                   {t("description.change_phone")}
                 </label>
-                <label className="text-lg">{t("title.current_phone")}</label>
-                <label className="mb-2 text-stone-400 text-lg">
-                  {user?.phoneNumber}
-                </label>
+                {!isAdditionalPhone && (
+                  <>
+                    <label className="text-lg">
+                      {t("title.current_phone")}
+                    </label>
+                    <label className="mb-2 text-stone-400 text-lg">
+                      {user?.phoneNumber}
+                    </label>
+                  </>
+                )}
+
                 <label className="text-lg">{t("title.new_phone")}</label>
                 <GradientBorderWrapper>
                   <input
@@ -73,9 +79,13 @@ export default function ChangePhoneDialog({ user }) {
             <>
               <div className="flex flex-col gap-4 p-2 mb-4">
                 <label className="text-stone-400 mb-4">
-                  {t("description.already_sent_otp", { address: newPhoneNumber })}
+                  {t("description.already_sent_otp", {
+                    address: newPhoneNumber,
+                  })}
                 </label>
-                <a href = "#" className="text-primary">{t("action.resend")}</a>
+                <a href="#" className="text-primary">
+                  {t("action.resend")}
+                </a>
                 <OtpInputCompoent value={otp} onChange={onChangeOtp} />
               </div>
               <div className="flex justify-center gap-2 p-2">

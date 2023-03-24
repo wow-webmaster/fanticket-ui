@@ -37,8 +37,9 @@
     "phone_number":"Número de telefone",
     "bank_account":"Detalhes bancários",
     "id_verification":"Verificação de identidade",
-    "validate":"Visibilidade"
-
+    "validate":"Visibilidade",
+    "ticket_share":"Seu anúncio está ativo!"
+    
 
 
   
@@ -59,10 +60,12 @@
     "include_commission":"Seu preço mínimo de 5% pela comissão",
     "include_transaction":"Você ganha 5% a mais pela comissão e 3% pela transação",
     "ticket_avatar":"Nos ajude a colocar uma cara para seu nome! Fãs se sentirão muito mais seguros para comprar ingressos se eles tiverem uma ideia de quem está vendendo.",
-    "ticket_finalize":"Tenha certeza que todas as informações estão corretas e coloque seu ingresso à venda!"
+    "ticket_finalize":"Tenha certeza que todas as informações estão corretas e coloque seu ingresso à venda!",
+    "ticket_share":"Enviaremos uma notificação quando for vendido! Compartilhe seu anúncio nas opções abaixo para aumentar as chances de vender seu(s) ingresso(s)."
     
   },
   "action":{
+    "copy_link":"Copiar link",
     "send":"Enviar",
     "verify":"Verificar",
     "back":"Voltar",

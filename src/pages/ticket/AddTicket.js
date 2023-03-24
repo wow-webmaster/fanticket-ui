@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Page from "../../components/Page";
+import useAuth from '../../hooks/useAuth';
 import PageBanner from "../../components/wrappers/PageBanner";
+import ChangePhoneDialog from "../../sections/profile/ChangePhone";
 import TicketAvatar from "../../sections/ticket/TicketAvatar";
 import TicketFinalize from "../../sections/ticket/TicketFinalize";
 import TicketNote from "../../sections/ticket/TicketNote";
 import TicketPrice from "../../sections/ticket/TicketPrice";
 import TicketUpload from "../../sections/ticket/TicketUpload";
+import TicketShareSocial from "../../sections/ticket/TicketShareSocial";
 
 export default function AddTicket() {
   const [step, setStep] = useState(0);
   const { t } = useTranslation();
+  const {user, isAuthenticated} = useAuth();
   const onNext = () => {
-    if (step < 4) {
+    if (step < 5) {
       setStep(step + 1);
     }
   };
@@ -27,7 +31,8 @@ export default function AddTicket() {
           {step === 1 && <TicketNote />}
           {step === 2 && <TicketPrice />}
           {step === 3 && <TicketAvatar />}
-          {step === 4 && <TicketFinalize />}
+          {step === 4 && <TicketFinalize onNext = {onNext} onPrev = {onPrev}/>}
+          {step === 5 && <TicketShareSocial />}
           {/* actions */}
           {step !== 4 && (
             <div className="flex flex-col gap-8 justify-center items-center">
@@ -53,6 +58,7 @@ export default function AddTicket() {
           )}
         </div>
       </PageBanner>
+      <ChangePhoneDialog user={user} isAdditionalPhone/>
     </Page>
   );
 }
