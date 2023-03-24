@@ -39,7 +39,7 @@ export default function Router() {
         { element: <MainPage />, index: true },
         { element: <BasicProfilePage />, path: "profile" },
         { element: <NotificationPage />, path: "profile/notifications" },
-        { element: <AddEventPage />, path: "add-event" },
+        
       ],
     },
     {
@@ -47,6 +47,13 @@ export default function Router() {
       element: <MainLayout />,
       children: [
         { element: <AddEventPage />, path: "add" },
+      ],
+    },
+    {
+      path: "/ticket",
+      element: <MainLayout />,
+      children: [
+        { element: <AddTicketPage />, path: "sell/add" },
       ],
     },
     // { path: '*', element: <Navigate to="/404" replace /> },
@@ -71,3 +78,6 @@ const NotificationPage = Loadable(
 );
 //EVENT
 const AddEventPage = Loadable(lazy(() => import("../pages/events/AddEvent")));
+
+// TICKET
+const AddTicketPage = Loadable(lazy(() => import("../pages/ticket/AddTicket")));

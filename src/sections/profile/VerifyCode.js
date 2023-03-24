@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 import { BlurModalBox } from "../../components/StyledComponents";
 import { useEffect, useState } from "react";
 import OtpInputCompoent from "../../components/form/OtpInputComponent";

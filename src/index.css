@@ -10,6 +10,10 @@ body{
   outline: none;
 }
 
+.textarea:active, .textarea:focus {
+  outline: none;
+}
+
 /* data time picker  */
 
 .react-datetime-picker__wrapper{
