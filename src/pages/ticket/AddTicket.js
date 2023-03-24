@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Page from "../../components/Page";
 import PageBanner from "../../components/wrappers/PageBanner";
+import TicketAvatar from "../../sections/ticket/TicketAvatar";
+import TicketFinalize from "../../sections/ticket/TicketFinalize";
 import TicketNote from "../../sections/ticket/TicketNote";
 import TicketPrice from "../../sections/ticket/TicketPrice";
 import TicketUpload from "../../sections/ticket/TicketUpload";
@@ -24,6 +26,8 @@ export default function AddTicket() {
           {step === 0 && <TicketUpload />}
           {step === 1 && <TicketNote />}
           {step === 2 && <TicketPrice />}
+          {step === 3 && <TicketAvatar />}
+          {step === 4 && <TicketFinalize />}
           {/* actions */}
           <div className="flex flex-col gap-8 justify-center items-center">
             <div className="max-w-2xl w-full mb-8">

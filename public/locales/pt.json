@@ -27,7 +27,19 @@
     "add_new_ticket":"Adicione seus ingressos",
     "set_price":"Configurar preço",
     "you_receive":"Você receberá",
-    "buyer_pay":"Compradores  pagarão"
+    "buyer_pay":"Compradores  pagarão",
+    "ticket_avatar":"Sua foto",
+    "ticket_finalize":"Revisar e finalizar",
+    "ticket":"Ingressos",
+    "event":"Evento",
+    "ticket_detail":"Detalhes do ingresso",
+    "sell_price":"Preço de venda",
+    "phone_number":"Número de telefone",
+    "bank_account":"Detalhes bancários",
+    "id_verification":"Verificação de identidade",
+    "validate":"Visibilidade"
+
+
 
   
 
@@ -45,7 +57,10 @@
     "add_new_ticket":"Os fãs só poderão ver os ingressos depois de comprá-los.",
     "set_price":"Nós detectamos que você pagou R$264,00 por ingresso. Para ser justo, você pode vender por até 120% acima do valor original do seu ingresso.",
     "include_commission":"Seu preço mínimo de 5% pela comissão",
-    "include_transaction":"Você ganha 5% a mais pela comissão e 3% pela transação"
+    "include_transaction":"Você ganha 5% a mais pela comissão e 3% pela transação",
+    "ticket_avatar":"Nos ajude a colocar uma cara para seu nome! Fãs se sentirão muito mais seguros para comprar ingressos se eles tiverem uma ideia de quem está vendendo.",
+    "ticket_finalize":"Tenha certeza que todas as informações estão corretas e coloque seu ingresso à venda!"
+    
   },
   "action":{
     "send":"Enviar",
@@ -55,7 +70,8 @@
     "resend":"Reenviar",
     "edit":"Editar",
     "show_more":"Mostre mais",
-    "register_event":"Registrar Novo Evento"
+    "register_event":"Registrar Novo Evento",
+    "make_ticket":"Criar lista de ingressos"
   },
   "message":{
     "not_found_event":"No results found. Search for an event, venue or city"
