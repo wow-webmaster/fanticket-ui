@@ -71,7 +71,9 @@
     "edit":"Editar",
     "show_more":"Mostre mais",
     "register_event":"Registrar Novo Evento",
-    "make_ticket":"Criar lista de ingressos"
+    "make_ticket":"Criar lista de ingressos",
+    "reset":"Resetar e começar de novo",
+    "create_ad":"Criar anúncio"
   },
   "message":{
     "not_found_event":"No results found. Search for an event, venue or city"

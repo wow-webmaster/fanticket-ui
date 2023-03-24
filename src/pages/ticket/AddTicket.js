@@ -29,26 +29,28 @@ export default function AddTicket() {
           {step === 3 && <TicketAvatar />}
           {step === 4 && <TicketFinalize />}
           {/* actions */}
-          <div className="flex flex-col gap-8 justify-center items-center">
-            <div className="max-w-2xl w-full mb-8">
-              <div className="h-6"></div>
+          {step !== 4 && (
+            <div className="flex flex-col gap-8 justify-center items-center">
+              <div className="max-w-2xl w-full mb-8">
+                <div className="h-6"></div>
 
-              <div className="w-full flex justify-between">
-                <button
-                  className="btn btn-primary btn-outline px-8 capitalize "
-                  onClick={onPrev}
-                >
-                  {t("action.back")}
-                </button>
-                <button
-                  className="btn btn-primary px-8 capitalize "
-                  onClick={onNext}
-                >
-                  {t("action.continue")}
-                </button>
+                <div className="w-full flex justify-between">
+                  <button
+                    className="btn btn-primary btn-outline px-8 capitalize "
+                    onClick={onPrev}
+                  >
+                    {t("action.back")}
+                  </button>
+                  <button
+                    className="btn btn-primary px-8 capitalize "
+                    onClick={onNext}
+                  >
+                    {t("action.continue")}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </PageBanner>
     </Page>
