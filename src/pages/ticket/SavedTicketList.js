@@ -7,19 +7,19 @@ import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapp
 import PageBanner from "../../components/wrappers/PageBanner";
 import { ALL_EVENTS } from "../../_mocks";
 
-export default function TicketAlert() {
+export default function SavedTicketList() {
   const { t } = useTranslation();
   const onNavigate = () => {};
-  const alertedEvents = ALL_EVENTS.filter((e) => e.alert);
+  const savedEvents = ALL_EVENTS.filter((e) => e.alert);
   return (
-    <Page title="Ticket Alert">
+    <Page title="Saved Tickets">
       <PageBanner>
         <div className="container p-4 mb-8">
           <div className="w-full justify-center items-center flex mb-8">
-            <h4 className="text-4xl font-bold">{t("title.menu.alert")}</h4>
+            <h4 className="text-4xl font-bold">{t("title.menu.event")}</h4>
           </div>
           <div className="flex flex-col gap-4 w-full max-w-4xl container mb-8">
-            {alertedEvents.length === 0 && (
+            {savedEvents.length === 0 && (
               <>
                 <div className="container max-w-2xl mb-4">
                   <EventSearchComponent />
@@ -39,7 +39,18 @@ export default function TicketAlert() {
                 </GradientBorderWrapper>
               </>
             )}
-
+            {savedEvents.length > 0 && (
+              <div className="flex w-full ">
+                <GradientBorderWrapper isMessage>
+                  <div className="flex p-4 w-full items-center text-lg gap-2">
+                    <Icon icon = "carbon:notification" ></Icon>
+                    <p>
+                      You have {savedEvents.length} saved events, please check bellow list.
+                    </p>
+                  </div>
+                </GradientBorderWrapper>
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
               {ALL_EVENTS.filter((e) => e.alert).map((e, index) => (
                 <GradientBorderWrapper key={index}>

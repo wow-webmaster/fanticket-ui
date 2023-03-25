@@ -33,7 +33,7 @@ export default function UserPopover({ user, logout = () => {} }) {
           <Link className="py-1" to="/ticket/alert">{t("title.menu.alert")}</Link>
         </li>
         <li onClick={handleClose}>
-          <a className="py-1" href="/">{t("title.menu.event")}</a>
+          <Link className="py-1" to="/ticket/saved">{t("title.menu.event")}</Link>
         </li>
         <li onClick={handleClose}>
           <Link className="py-1" to="/profile">{t("title.menu.profile")}</Link>

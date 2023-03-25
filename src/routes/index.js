@@ -59,7 +59,9 @@ export default function Router() {
       children: [
         { element: <AddTicketPage />, path: "sell/add" },
         { element: <BuyTicketPage />, path: "buy/:id" },
-        { element: <TicketAlertPage />, path: "alert" },
+        { element: <AlertTicketListPage />, path: "alert" },
+        { element: <SavedTicketListPage />, path: "saved" },
+
       ],
     },
 
@@ -91,6 +93,10 @@ const EventInformatioPage = Loadable(
 // TICKET
 const AddTicketPage = Loadable(lazy(() => import("../pages/ticket/AddTicket")));
 const BuyTicketPage = Loadable(lazy(() => import("../pages/ticket/BuyTicket")));
-const TicketAlertPage = Loadable(
-  lazy(() => import("../pages/ticket/TicketAlert"))
+const AlertTicketListPage = Loadable(
+  lazy(() => import("../pages/ticket/AlertedTicketList"))
+);
+
+const SavedTicketListPage = Loadable(
+  lazy(() => import("../pages/ticket/SavedTicketList"))
 );
