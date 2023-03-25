@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import Page from "../../components/Page";
 import PageBanner from "../../components/wrappers/PageBanner";
 import EventBanner from "../../sections/events/EventBanner";
+import EventInformationSection from "../../sections/events/EventInfomationSection";
+import EventMoreSection from "../../sections/events/EventMore";
 import TicketDetailList from "../../sections/events/TicketDetailList";
 import TicketList from "../../sections/events/TicketList";
 import { ALL_EVENTS } from "../../_mocks";
@@ -13,22 +15,22 @@ export default function EventInformation() {
   const [eventTypeId, setEventTypeId] = useState();
   const [tickets, setTickets] = useState([]);
   const [currentEvent, setCurrentEvent] = useState();
-  
+
   useEffect(() => {
-    
     try {
       const _event = ALL_EVENTS.filter((e) => e._id === eventId)[0];
       setCurrentEvent(_event);
-
-    } catch (err) {console.log(err)}
+    } catch (err) {
+      console.log(err);
+    }
   }, [eventId]);
 
-  const onDetailAction = (eventTypeId)=>{
+  const onDetailAction = (eventTypeId) => {
     setEventTypeId(eventTypeId);
     if (currentEvent && currentEvent?.tickets && eventTypeId) {
       setTickets(currentEvent.tickets.filter((e) => e.type === eventTypeId));
     }
-  }
+  };
   return (
     <Page title="Event Detail">
       <PageBanner>
@@ -80,11 +82,16 @@ export default function EventInformation() {
                   </div>
                 </div>
                 {tabId === "basic" && !eventTypeId && (
-                  <TicketList event={currentEvent} onDetailAction = {onDetailAction} />
+                  <TicketList
+                    event={currentEvent}
+                    onDetailAction={onDetailAction}
+                  />
                 )}
                 {tabId === "basic" && eventTypeId && tickets && (
-                  <TicketDetailList tickets={tickets} event = {currentEvent} />
+                  <TicketDetailList tickets={tickets} event={currentEvent} />
                 )}
+                {tabId === "infomation" && <EventInformationSection />}
+                {tabId === "more" && <EventMoreSection />}
               </>
             )}
           </div>
