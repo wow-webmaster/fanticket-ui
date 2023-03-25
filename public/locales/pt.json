@@ -8,7 +8,9 @@
       "event": "Saved Events",
       "conversation": "Conversations",
       "payout": "Payouts",
-      "notification": "Notificações"
+      "notification": "Notificações",
+      "bought":"My Tickets",
+      "listing":"My Listings"
     },
     "modal":{
       "change_email":"Mude o e-mail",

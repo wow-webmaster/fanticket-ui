@@ -15,8 +15,8 @@ export default function MainHeader() {
 
   const _onSellTicket = () => {
     if (isAuthenticated) navigate("/ticket/sell/add");
-    else{
-      document.querySelector('#auth-modal-check').click();
+    else {
+      document.querySelector("#auth-modal-check").click();
     }
   };
   return (
@@ -35,7 +35,17 @@ export default function MainHeader() {
           <Icon icon="ic:round-menu" />
         </button>
         <div className="md:flex gap-1 items-center hidden">
-          <MenuItem href="#">How it works</MenuItem>
+          <MenuItem href="#">
+            {!isAuthenticated && "How it works"}
+            {isAuthenticated &&   <Icon width={32} icon="iconoir:headset-help" className="mr-4"></Icon>}
+          </MenuItem>
+          {isAuthenticated && (
+            <>
+              <MenuItem className="w-10" href="#">
+                <Icon width={32} icon="mdi:cart-outline"></Icon>
+              </MenuItem>
+            </>
+          )}
           {(isAuthenticated && <UserPopover user={user} logout={logout} />) || (
             <MenuItem href="#" className="w-20 text-center">
               <label className="cursor-pointer" htmlFor="auth-modal-check">
@@ -48,7 +58,6 @@ export default function MainHeader() {
             className="btn btn-outline btn-primary py-1 px-8 text-lg"
             onClick={_onSellTicket}
           >
-
             Sell ticket
           </button>
         </div>
