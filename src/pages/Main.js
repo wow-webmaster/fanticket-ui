@@ -1,7 +1,6 @@
 import Page from "../components/Page";
 import ScrollTop from "../components/ScrollTop";
 import { BannerSection, CategoryListSection, CustomerReviews, LocationEventSection, NextEventSection, WhyUseSection } from "../sections/main";
-import {default as LoginModal} from "./auth/Login";
 
  
 
@@ -24,7 +23,7 @@ export default function Main() {
         <div className="h-6"></div>
         <CustomerReviews />
       </div>
-      <LoginModal />
+   
     </Page>
   );
 }

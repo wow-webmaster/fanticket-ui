@@ -56,6 +56,8 @@ export default function Router() {
       element: <MainLayout />,
       children: [
         { element: <AddTicketPage />, path: "sell/add" },
+        { element: <BuyTicketPage />, path: "buy/:id" },
+
       ],
     },
     // { path: '*', element: <Navigate to="/404" replace /> },
@@ -83,3 +85,4 @@ const AddEventPage = Loadable(lazy(() => import("../pages/events/AddEvent")));
 const EventInformatioPage = Loadable(lazy(() => import("../pages/events/EventInformation")));
 // TICKET
 const AddTicketPage = Loadable(lazy(() => import("../pages/ticket/AddTicket")));
+const BuyTicketPage = Loadable(lazy(() => import("../pages/ticket/BuyTicket")));

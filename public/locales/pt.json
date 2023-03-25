@@ -46,6 +46,7 @@
     "ticket_ads_location":"Localização",
     "ticket_ads_transfer":"Será transferido para",
     "infomation":"Informações",
+  
     "more":"Mais"
 
   },
@@ -65,7 +66,8 @@
     "include_transaction":"Você ganha 5% a mais pela comissão e 3% pela transação",
     "ticket_avatar":"Nos ajude a colocar uma cara para seu nome! Fãs se sentirão muito mais seguros para comprar ingressos se eles tiverem uma ideia de quem está vendendo.",
     "ticket_finalize":"Tenha certeza que todas as informações estão corretas e coloque seu ingresso à venda!",
-    "ticket_share":"Enviaremos uma notificação quando for vendido! Compartilhe seu anúncio nas opções abaixo para aumentar as chances de vender seu(s) ingresso(s)."
+    "ticket_share":"Enviaremos uma notificação quando for vendido! Compartilhe seu anúncio nas opções abaixo para aumentar as chances de vender seu(s) ingresso(s).",
+    "origin_price":"O preço original era {{price}}"
     
   },
   "action":{
@@ -82,7 +84,8 @@
     "make_ticket":"Criar lista de ingressos",
     "reset":"Resetar e começar de novo",
     "create_ad":"Criar anúncio",
-    "sell_ticket":"Vender ingressos"
+    "sell_ticket":"Vender ingressos",
+    "compare":"Comprar"
   },
   "message":{
     "not_found_event":"No results found. Search for an event, venue or city"

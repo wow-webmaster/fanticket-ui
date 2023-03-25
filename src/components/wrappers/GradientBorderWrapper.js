@@ -11,14 +11,13 @@ const GradientBorderStyleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background: linear-gradient(#1c1c1c, #1c1c1c) padding-box,
-    linear-gradient(to bottom, #828282, #323232) border-box;
+  background: linear-gradient(#1c1c1c, #1c1c1c) padding-box, linear-gradient(to bottom, #828282, #323232) border-box;
 `;
 
 export default function GradientBorderWrapper(props) {
   return (
-    <GradientBorderStyleWrapper>
-      <div className={`w-full rounded-xl ${props?.hoverEvent && 'hover:bg-primary/20' }`} >
+    <GradientBorderStyleWrapper >
+      <div className={`w-full ${props?.isMessage && 'bg-primary/30' } rounded-xl ${props?.hoverEvent && 'hover:bg-primary/20' }`} >
         {props.children}
       </div>
     </GradientBorderStyleWrapper>

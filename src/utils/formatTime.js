@@ -29,6 +29,13 @@ export function fToNow(date) {
   });
 }
 export function fDescriptionTypeDate(date){
+  console.log(date, "date");
+  try{
+    
+    return format(new Date(date),"EEEE dd, MMMM, yyyy hh:mm p");
+  }
+  catch(err){
+    return(`${date}`)
+  }
   
-  return format(new Date(date),"EEEE dd, MMMM, yyyy hh:mm p");
 }

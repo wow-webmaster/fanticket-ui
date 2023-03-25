@@ -156,9 +156,11 @@ export const TICKETS = [
     sold: false,
     date: new Date("2023-04-2"),
     type: "event_type_id",
+    eventId:"uuid-12-5432",
   },
   {
     _id: "ticket_id_1",
+    eventId:"uuid-12-5432",
     avatar: "/images/clients/customer-4.png",
     price: 220,
     position: "Ingresso LOTE 4 ",
@@ -168,6 +170,7 @@ export const TICKETS = [
   },
   {
     _id: "ticket_id_2",
+    eventId:"uuid-12-5432",
     avatar: "/images/clients/customer-3.png",
     price: 230,
     position: "Ingresso LOTE 5 ",
@@ -177,6 +180,7 @@ export const TICKETS = [
   },
   {
     _id: "ticket_id_3",
+    eventId:"uuid-12-5432",
     avatar: "/images/clients/customer-1.png",
     price: 210,
     position: "Ingresso LOTE 8",
@@ -186,6 +190,7 @@ export const TICKETS = [
   },
   {
     _id: "ticket_id_4",
+    eventId:"uuid-12-5432",
     avatar: "/images/clients/customer-2.png",
     price: 245,
     position: "Ingresso LOTE 10",
@@ -195,6 +200,7 @@ export const TICKETS = [
   },
   {
     _id: "ticket_id_2",
+    eventId:"uuid-12-5432",
     avatar: "/images/clients/customer-3.png",
     price: 230,
     position: "Ingresso LOTE 5 ",
@@ -204,6 +210,7 @@ export const TICKETS = [
   },
   {
     _id: "ticket_id_3",
+    eventId:"uuid-12-5432",
     avatar: "/images/clients/customer-1.png",
     price: 210,
     position: "Ingresso LOTE 8",
@@ -213,6 +220,7 @@ export const TICKETS = [
   },
   {
     _id: "ticket_id_4",
+    eventId:"uuid-12-5432",
     avatar: "/images/clients/customer-2.png",
     price: 245,
     position: "Ingresso LOTE 10",

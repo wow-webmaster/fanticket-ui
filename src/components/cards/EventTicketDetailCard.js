@@ -1,12 +1,16 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useNavigate } from "react-router-dom";
 import { fDescriptionTypeDate, fToNow } from "../../utils/formatTime";
 import GradientBorderWrapper from "../wrappers/GradientBorderWrapper";
 
-export default function EventTicketDetailCard({ ticket, onAction, eventType,  }) {
+export default function EventTicketDetailCard({ ticket, onAction, eventType }) {
+  const navigate = useNavigate();
   const onTap = () => {
-    if (onAction) {
-      onAction();
-    }
+    
+      if (!ticket.sold) {
+        navigate(`/ticket/buy/${ticket._id}`);
+      }
+      // onAction();
   };
   return (
     <div
