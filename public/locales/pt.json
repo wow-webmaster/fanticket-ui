@@ -44,8 +44,9 @@
     "ticket_ads_price":"Preço",
     "ticket_ads_event_date":"Data do evento",
     "ticket_ads_location":"Localização",
-    "ticket_ads_transfer":"Será transferido para"
-  
+    "ticket_ads_transfer":"Será transferido para",
+    "infomation":"Informações",
+    "more":"Mais"
 
   },
   "description":{

@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -79,7 +79,6 @@ export default function EventSearchComponent({ small = false }) {
                     <button
                       className="btn btn-primary capitalize"
                       onClick={() => {
-                        console.log("add event action performed", isAuthenticated);
                         if (isAuthenticated) navigate("/event/add");
                       }}
                     >
@@ -103,15 +102,18 @@ export default function EventSearchComponent({ small = false }) {
                     className="flex justify-between p-2 w-full hover:bg-secondary cursor-pointer rounded-lg"
                     key={index}
                   >
-                    <div className="flex gap-2 items-center">
-                      <Icon icon="arcticons:eventyayattendee" width={24} />
-                      <div className="flex flex-col gap-1">
-                        <label className="text-lg">{e.name}</label>
-                        <label className="text-primary">
-                          {fShortDate(e.start)} - {fShortDate(e.end)}, {e.place}
-                        </label>
+                    <Link to = {`/event/${e._id}/basic`}>
+                      <div className="flex gap-2 items-center cursor-pointer ">
+                        <Icon icon="arcticons:eventyayattendee" width={24} />
+                        <div className="flex flex-col gap-1">
+                          <h6 className="text-lg ">{e.name}</h6>
+                          <h6 className="text-primary ">
+                            {fShortDate(e.start)} - {fShortDate(e.end)},{" "}
+                            {e.place}
+                          </h6>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 ))}
               </div>

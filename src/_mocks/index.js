@@ -150,6 +150,8 @@ export const NOTIFICATIONS = [
 
 export const ALL_EVENTS = [
   {
+    _id:"uuid-12-5432",
+    cover:"/images/events/event-1.jpg",
     name: "Warung Tour São Paulo",
     start: new Date("2023-01-21"),
     end: new Date("2023-01-24"),
@@ -158,6 +160,8 @@ export const ALL_EVENTS = [
     ticketCount: 13,
   },
   {
+    _id:"uuid-13-5432",
+    cover:"/images/events/event-2.jpg",
     name: "Event Spring Carnival",
     start: new Date("2023-02-21"),
     end: new Date("2023-02-21"),
@@ -166,7 +170,9 @@ export const ALL_EVENTS = [
     ticketCount: 13,
   },
   {
+    _id:"uuid-14-5432",
     name: "Théâtre de Namur",
+    cover:"/images/events/event-3.jpg",
     start: new Date("2023-03-28"),
     end: new Date("2023-03-31"),
     city: "São Paulo",
@@ -174,6 +180,8 @@ export const ALL_EVENTS = [
     ticketCount: 13,
   },
   {
+    _id:"uuid-15-5432",
+    cover:"/images/events/event-4.jpg",
     name: "Eventing Spring Carnival",
     start: new Date("2023-03-22"),
     end: new Date("2023-03-22"),
@@ -182,6 +190,8 @@ export const ALL_EVENTS = [
     ticketCount: 13,
   },
   {
+    _id:"uuid-16-5432",
+    cover:"/images/events/event-5.jpg",
     name: "Warung Tour São Paulo",
     start: new Date("2023-03-24"),
     end: new Date("2023-03-24"),
@@ -190,6 +200,8 @@ export const ALL_EVENTS = [
     ticketCount: 13,
   },
   {
+    _id:"uuid-17-5432",
+    cover:"/images/events/event-6.jpg",
     name: "Warung Tour São Paulo",
     start: new Date("2023-03-31"),
     end: new Date("2023-04-12"),

@@ -28,3 +28,7 @@ export function fToNow(date) {
     addSuffix: true
   });
 }
+export function fDescriptionTypeDate(date){
+  
+  return format(new Date(date),"EEEE dd, MMMM, yyyy hh:mm p");
+}
