@@ -240,6 +240,7 @@ export const ALL_EVENTS = [
     place: "Teatro",
     ticketCount: 13,
     tickets: TICKETS,
+    alert:false,
   },
   {
     _id: "uuid-13-5432",
@@ -251,6 +252,7 @@ export const ALL_EVENTS = [
     place: "Teatro",
     ticketCount: 13,
     tickets: TICKETS,
+    alert:false,
   },
   {
     _id: "uuid-14-5432",
@@ -262,6 +264,7 @@ export const ALL_EVENTS = [
     place: "Teatro",
     ticketCount: 13,
     tickets: TICKETS,
+    alert:false,
   },
   {
     _id: "uuid-15-5432",
@@ -273,6 +276,7 @@ export const ALL_EVENTS = [
     place: "Teatro",
     ticketCount: 13,
     tickets: TICKETS,
+    alert:true,
   },
   {
     _id: "uuid-16-5432",
@@ -284,6 +288,7 @@ export const ALL_EVENTS = [
     place: "Teatro",
     ticketCount: 13,
     tickets: TICKETS,
+    alert:false,
   },
   {
     _id: "uuid-17-5432",
@@ -294,6 +299,7 @@ export const ALL_EVENTS = [
     city: "São Paulo",
     place: "Teatro",
     ticketCount: 13,
+    alert:true,
     tickets: TICKETS,
   },
 ];

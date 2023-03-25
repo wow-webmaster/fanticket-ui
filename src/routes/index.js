@@ -39,7 +39,6 @@ export default function Router() {
         { element: <MainPage />, index: true },
         { element: <BasicProfilePage />, path: "profile" },
         { element: <NotificationPage />, path: "profile/notifications" },
-        
       ],
     },
     {
@@ -48,7 +47,10 @@ export default function Router() {
       children: [
         { element: <AddEventPage />, path: "add" },
         { element: <EventInformatioPage />, path: ":eventId/:tabId" },
-        { element: <EventInformatioPage />, path: ":eventId/:tabId/:eventTypeId" },
+        {
+          element: <EventInformatioPage />,
+          path: ":eventId/:tabId/:eventTypeId",
+        },
       ],
     },
     {
@@ -57,9 +59,10 @@ export default function Router() {
       children: [
         { element: <AddTicketPage />, path: "sell/add" },
         { element: <BuyTicketPage />, path: "buy/:id" },
-
+        { element: <TicketAlertPage />, path: "alert" },
       ],
     },
+
     // { path: '*', element: <Navigate to="/404" replace /> },
   ]);
 }
@@ -82,7 +85,12 @@ const NotificationPage = Loadable(
 );
 //EVENT
 const AddEventPage = Loadable(lazy(() => import("../pages/events/AddEvent")));
-const EventInformatioPage = Loadable(lazy(() => import("../pages/events/EventInformation")));
+const EventInformatioPage = Loadable(
+  lazy(() => import("../pages/events/EventInformation"))
+);
 // TICKET
 const AddTicketPage = Loadable(lazy(() => import("../pages/ticket/AddTicket")));
 const BuyTicketPage = Loadable(lazy(() => import("../pages/ticket/BuyTicket")));
+const TicketAlertPage = Loadable(
+  lazy(() => import("../pages/ticket/TicketAlert"))
+);
