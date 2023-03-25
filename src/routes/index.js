@@ -48,7 +48,7 @@ export default function Router() {
       children: [
         { element: <AddEventPage />, path: "add" },
         { element: <EventInformatioPage />, path: ":eventId/:tabId" },
-
+        { element: <EventInformatioPage />, path: ":eventId/:tabId/:eventTypeId" },
       ],
     },
     {

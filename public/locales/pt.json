@@ -81,7 +81,8 @@
     "register_event":"Registrar Novo Evento",
     "make_ticket":"Criar lista de ingressos",
     "reset":"Resetar e começar de novo",
-    "create_ad":"Criar anúncio"
+    "create_ad":"Criar anúncio",
+    "sell_ticket":"Vender ingressos"
   },
   "message":{
     "not_found_event":"No results found. Search for an event, venue or city"

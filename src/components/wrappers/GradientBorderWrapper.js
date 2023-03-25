@@ -18,7 +18,7 @@ const GradientBorderStyleWrapper = styled.div`
 export default function GradientBorderWrapper(props) {
   return (
     <GradientBorderStyleWrapper>
-      <div className="w-full rounded-xl " style={{ background: "#1C1C1C" }}>
+      <div className={`w-full rounded-xl ${props?.hoverEvent && 'hover:bg-primary/20' }`} >
         {props.children}
       </div>
     </GradientBorderStyleWrapper>
