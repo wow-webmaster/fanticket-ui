@@ -69,15 +69,15 @@ export default function EventInformation() {
                   <div className="flex gap-2">
                     <div className="flex justify-center flex-col items-center">
                       <h5 className="text-2xl">16</h5>
-                      <h6 className="text-stone-500">Disponíveis</h6>
+                      <h6 className="text-stone-400">Disponíveis</h6>
                     </div>
                     <div className="flex justify-center flex-col items-center">
                       <h5 className="text-2xl">6</h5>
-                      <h6 className="text-stone-500">Vendidos</h6>
+                      <h6 className="text-stone-400">Vendidos</h6>
                     </div>
                     <div className="flex justify-center flex-col items-center">
                       <h5 className="text-2xl">25</h5>
-                      <h6 className="text-stone-500">Desejados</h6>
+                      <h6 className="text-stone-400">Desejados</h6>
                     </div>
                   </div>
                 </div>

@@ -45,7 +45,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.event")}</h5>
-              <p className="text-stone-500 text-sm">
+              <p className="text-stone-400 text-sm">
                 Time Warp Brasil 2022 <br />
                 Sábado (Individual)
                 <br />
@@ -63,7 +63,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.ticket")}</h5>
-              <p className="text-stone-500 text-sm">1 ingresso à venda</p>
+              <p className="text-stone-400 text-sm">1 ingresso à venda</p>
               <span className="text-primary underline">{t("action.edit")}</span>
             </div>
             <Icon
@@ -76,7 +76,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.ticket_detail")}</h5>
-              <p className="text-stone-500 text-sm">
+              <p className="text-stone-400 text-sm">
                 Informações adicionais: 4º Lote - Meia Entrada Ticket
               </p>
               <span className="text-primary underline">{t("action.edit")}</span>
@@ -91,7 +91,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.ticket_detail")}</h5>
-              <p className="text-stone-500 text-sm">
+              <p className="text-stone-400 text-sm">
                 R$264,00 por ingresso (você receberá R$250,80 por ingresso)
               </p>
               <span className="text-primary underline">{t("action.edit")}</span>
@@ -106,7 +106,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.phone_number")}</h5>
-              <p className="text-stone-500 text-sm">+5551999999999</p>
+              <p className="text-stone-400 text-sm">+5551999999999</p>
               <label htmlFor="phone-modal-check" className="text-primary underline cursor-pointer">{t("action.edit")}</label>
             </div>
             <Icon
@@ -120,7 +120,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.bank_account")}</h5>
-              <p className="text-stone-500 text-sm">341 - 9649 - **** 4355</p>
+              <p className="text-stone-400 text-sm">341 - 9649 - **** 4355</p>
               <span className="text-primary underline">{t("action.edit")}</span>
             </div>
             <Icon
@@ -136,7 +136,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.validate")}</h5>
-              <p className="text-stone-500 text-sm">Público em FanTicket</p>
+              <p className="text-stone-400 text-sm">Público em FanTicket</p>
               <span className="text-primary underline">{t("action.edit")}</span>
             </div>
             <img src="/images/logo/logo-image.png" className="w-6 h-6" alt= "" />

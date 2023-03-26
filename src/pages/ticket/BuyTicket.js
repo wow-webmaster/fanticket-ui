@@ -48,7 +48,7 @@ export default function BuyTicket() {
                   </button>
                   <div className="flex flex-col gap-1">
                     <h5 className="text-lg">1 Ingresso - {ticket?.type}</h5>
-                    <h6 className="text-stone-500 ">
+                    <h6 className="text-stone-400 ">
                       {fDescriptionTypeDate(ticket?.date)}{" "}
                     </h6>
                   </div>
@@ -66,7 +66,7 @@ export default function BuyTicket() {
                 <CountChooser />
                 <div className="flex-1 flex-col gap-1">
                   <h6>R${ticket?.price}</h6>
-                  <h6 className="text-stone-500">
+                  <h6 className="text-stone-400">
                     {t("description.origin_price", { price: ticket?.price })}
                   </h6>
                 </div>
@@ -87,7 +87,7 @@ export default function BuyTicket() {
                       <h5 className="text-lg">
                         Informações adicionais de Mariana
                       </h5>
-                      <h6 className="text-stone-500">
+                      <h6 className="text-stone-400">
                         {ticket?.position}, {event?.place}
                       </h6>
                     </div>
@@ -127,7 +127,7 @@ export default function BuyTicket() {
                 </div>
                 <div className="flex flex-col gap-1 min-w-[300px]">
                   <h5 className="text-lg">Mariana</h5>
-                  <div className="text-stone-500 flex gap-1 items-center">
+                  <div className="text-stone-400 flex gap-1 items-center">
                     <Icon
                       icon="material-symbols:verified-user-rounded"
                       className={`text-success`}
@@ -141,7 +141,7 @@ export default function BuyTicket() {
               <div className="w-full flex gap-2 p-4 justify-center min-w-[300px]">
                 <div className="flex flex-col">
                   <h5 className="text-lg mb-4">FanSecurity</h5>
-                  <h6 className="text-stone-500">
+                  <h6 className="text-stone-400">
                     Trocaremos o ingresso original por um novo para 100% de
                     segurança.
                   </h6>

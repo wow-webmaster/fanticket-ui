@@ -22,7 +22,7 @@ export default function CustomerReviewCard({ customer }) {
         />
         <div className="flex flex-col gap-2">
           <label className="text-xl">{customer.name}</label>
-          <label className="text-stone-500 mb-2">{customer.role}</label>
+          <label className="text-stone-400 mb-2">{customer.role}</label>
           <p  className="hidden md:block text-ellipsis overflow-hidden">{customer?.lastReview}</p>
         </div>
       </div>

@@ -30,14 +30,14 @@ export default function EventTicketDetailCard({ ticket, onAction, eventType }) {
             </div>
             <div className="flex flex-col">
               <h6>{fDescriptionTypeDate(ticket.date)}</h6>
-              <h5 className="text-stone-500">{ticket.position}</h5>
+              <h5 className="text-stone-400">{ticket.position}</h5>
               <h6>{fToNow(ticket.date)}</h6>
             </div>
           </div>
           <div className="flex gap-2 items-center">
             <div className="flex flex-col">
               <h5 className=" ">{ticket.price}</h5>
-              <h6 className="text-stone-500 text-sm">/Ingresso</h6>
+              <h6 className="text-stone-400 text-sm">/Ingresso</h6>
             </div>
           </div>
         </div>

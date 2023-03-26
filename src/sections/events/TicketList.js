@@ -31,7 +31,7 @@ export default function TicketList({ event, onDetailAction }) {
               </div>
               <div className="flex flex-col justify-center gap-1">
                 <h5 className="text-xl">Alerta de ingressos</h5>
-                <h6 className="text-stone-500">
+                <h6 className="text-stone-400">
                   Seja notificado quando um ingresso estiver disponível
                 </h6>
               </div>

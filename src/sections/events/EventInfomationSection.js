@@ -33,7 +33,7 @@ export default function EventInformationSection() {
                 width={20}
                 icon="bi:calendar2-date"
               />
-              <h6 className="text-sm text-stone-500">26 eventos próximos</h6>
+              <h6 className="text-sm text-stone-400">26 eventos próximos</h6>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ export default function EventInformationSection() {
           <GradientBorderWrapper>
             <div className="p-4 flex flex-col gap-2">
               <h5 className="text-xl ">Você está organizando este evento?</h5>
-              <h6 className="text-stone-500">
+              <h6 className="text-stone-400">
                 Reivindique este evento para tornar a experiência dos fãs ainda
                 melhor.
               </h6>

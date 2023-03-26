@@ -18,7 +18,7 @@ export default function TicketPrice() {
               <div className="flex w-full justify-between px-2 items-center">
                 <h6>R$</h6>
                 <input className="input "></input>
-                <h6 className="text-stone-500">/ingresso</h6>
+                <h6 className="text-stone-400">/ingresso</h6>
               </div>
             </GradientBorderWrapper>
           </div>
@@ -47,7 +47,7 @@ export default function TicketPrice() {
           </div>
           <div className="flex gap-1 items-center">
             <h5 className="text-lg font-bold">R$250.80</h5>
-            <small className="text-stone-500">/ingresso</small>
+            <small className="text-stone-400">/ingresso</small>
           </div>
         </div>
         <div className="divider -my-8"></div>
@@ -60,7 +60,7 @@ export default function TicketPrice() {
           </div>
           <div className="flex gap-1  items-center">
             <h5 className="text-lg font-bold">R$285,52</h5>
-            <small className="text-stone-500">/ingresso</small>
+            <small className="text-stone-400">/ingresso</small>
           </div>
         </div>
       </div>

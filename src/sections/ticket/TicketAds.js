@@ -28,7 +28,7 @@ export default function TicketAds() {
               <h5 className="text-lg font-bold">
                 {t("title.ticket_ads_what")}
               </h5>
-              <p className="text-stone-500 text-sm">
+              <p className="text-stone-400 text-sm">
                 1 ingresso para DGTL 2022 - São Paulo (Early Bird)
               </p>
             </div>
@@ -40,7 +40,7 @@ export default function TicketAds() {
               <h5 className="text-lg font-bold">
                 {t("title.ticket_ads_price")}
               </h5>
-              <p className="text-stone-500 text-sm">R$192,50 por ingresso</p>
+              <p className="text-stone-400 text-sm">R$192,50 por ingresso</p>
               <span className="text-primary underline">{t("action.edit")}</span>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function TicketAds() {
               <h5 className="text-lg font-bold">
                 {t("title.ticket_ads_event_date")}
               </h5>
-              <p className="text-stone-500 text-sm">
+              <p className="text-stone-400 text-sm">
                 Sábado, 9 de Abril de 2022
               </p>
             </div>
@@ -63,7 +63,7 @@ export default function TicketAds() {
               <h5 className="text-lg font-bold">
                 {t("title.ticket_ads_location")}
               </h5>
-              <p className="text-stone-500 text-sm">
+              <p className="text-stone-400 text-sm">
                 Pavilhão de Exposições do Anhembi, São Paulo, Brasil
               </p>
             </div>
@@ -75,7 +75,7 @@ export default function TicketAds() {
               <h5 className="text-lg font-bold">
                 {t("title.ticket_ads_transfer")}
               </h5>
-              <p className="text-stone-500 text-sm">341 - 9649 - **** 4355</p>
+              <p className="text-stone-400 text-sm">341 - 9649 - **** 4355</p>
             </div>
           </div>
         </GradientBorderWrapper>
@@ -94,7 +94,7 @@ export default function TicketAds() {
                     className="text-primary"
                   ></Icon>
                 </div>
-                <p className="text-stone-500">{important.content}</p>
+                <p className="text-stone-400">{important.content}</p>
               </div>
             ))}
           </div>

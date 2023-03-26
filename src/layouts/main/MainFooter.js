@@ -20,14 +20,14 @@ export default function MainFooter() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-2 mb-8">
               <div className="flex flex-col gap-4">
                 <label className="text-2xl">Sobre</label>
-                <p className="text-stone-500">
+                <p className="text-stone-400">
                   FanTicket é uma plataforma de venda e compra de ingressos
                   entre pessoas. Uma referência para fãs prática e segura, que
                   promove encontro de interesses e a melhor experiência em
                   shows, festas, festivais, jogos, teatro e muito mais.
                   FanTicket CNPJ 123.123.123/0001-12
                 </p>
-                <label className="mb-8 text-stone-500">
+                <label className="mb-8 text-stone-400">
                   Atendimento ao cliente <br />
                   contato@fanticket.com.br
                 </label>
@@ -71,7 +71,7 @@ export default function MainFooter() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               <div className="md:col-span-3">
-                <label className="text-stone-500">
+                <label className="text-stone-400">
                   FanTicket - 2022 - Todos os direitos reservados.
                 </label>
               </div>

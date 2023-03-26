@@ -14,7 +14,7 @@ export default function EventTicketCard({ eventTypeId, type, date, count, onActi
         <div className="flex gap-2 justify-between p-4 items-center hover:text-primary">
           <div className="flex flex-col gap-2">
             <h5 className="text-xl ">{type}</h5>
-            <h6 className="text-stone-500 ">{fDescriptionTypeDate(date)}</h6>
+            <h6 className="text-stone-400 ">{fDescriptionTypeDate(date)}</h6>
           </div>
           <div>
             <div
