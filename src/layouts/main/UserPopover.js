@@ -12,7 +12,7 @@ export default function UserPopover({ user, logout = () => {} }) {
   return (
     <div className="dropdown">
       <div className="flex gap-2 px-2 items-center cursor-pointer" tabIndex={0}>
-        <div className="avatar indicator  w-16 ">
+        <div className="avatar indicator  w-14 ">
           <span className="indicator-item badge badge-error">2</span>
           <img
             src={`${HOST_API}${user.avatar}`}
@@ -22,11 +22,11 @@ export default function UserPopover({ user, logout = () => {} }) {
         </div>
         <Icon icon={`ic:outline-keyboard-arrow-down`} />
       </div>
-      <ul className="dropdown-content mt-1 menu p-2 shadow bg-base-200 rounded-box w-64">
+      <ul className="dropdown-content mt-1 menu p-2 shadow bg-base-200 rounded-box w-64 ">
         <li>
-          <div className="flex flex-col gap-1 items-start py-1">
-            <label className="font-bold text-lg ">{user?.displayName}</label>
-            <label className=" text-left">{user?.email}</label>
+          <div className="flex flex-col gap-1 items-start py-1 w-60 ">
+            <label className="font-bold text-lg ">{user?.fullName}</label>
+            <label className=" text-left w-56 text-ellipsis overflow-hidden">{user?.email}</label>
           </div>
         </li>
         <div className="divider h-1" />

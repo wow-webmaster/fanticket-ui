@@ -7,4 +7,5 @@ export const API_AUTH = {
 }
 export const API_EVENT = {
     addNewEvent:"/api/v1/event/add-event",
+    getAvailabelEvent:"/api/v1/event/get-available-events",
 }
