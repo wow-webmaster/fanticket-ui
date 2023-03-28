@@ -71,7 +71,7 @@ export default function EventSearchComponent({ small = false }) {
                 <label className="text-stone-400 text-lg">
                   {t("title.search_result")}
                 </label>
-                {filteredEvents.length === 0 && (
+                {filteredEvents?.length === 0 && (
                   <div className="flex flex-col justify-center items-center p-4 gap-4">
                     <label className="text-xl">
                       {t("message.not_found_event")}
