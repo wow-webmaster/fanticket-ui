@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { HOST_API } from "../../config";
 
 export default function UserPopover({ user, logout = () => {} }) {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ export default function UserPopover({ user, logout = () => {} }) {
         <div className="avatar indicator  w-16 ">
           <span className="indicator-item badge badge-error">2</span>
           <img
-            src={user.avatar}
+            src={`${HOST_API}${user.avatar}`}
             alt="user avatar"
             className="rounded-full"
           ></img>

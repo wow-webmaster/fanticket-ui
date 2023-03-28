@@ -5,35 +5,39 @@ import { toast } from "react-toastify";
 import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 import useAuth from "../../hooks/useAuth";
 
-export default function LoginForm() {
-  const { login } = useAuth();
+export default function RegisterForm({ setFormData }) {
+  const { signup } = useAuth();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: useMemo(() => {
       return {
         email: "",
-        // username: "",
+        fullName: "",
         password: "",
       };
     }, []),
   });
-  const onSubmit = async (data) => {
-    setLoading(true);
-    const result = await login(data.email, data.password);
-    console.log(result.data);
-    if(result.data.status === 200 && result.data.data.user){
-      window.location.reload(true);
-    }
-    else{
-      toast.error(result.data.message);
-    }
+  const onSubmit = async (data ,e) => {
     
+    e.preventDefault();
+    setLoading(true);
+    console.log("register form....................")
+    const result = await signup(data.email, data.fullName, data.password);
     setLoading(false);
+    if (result != null && result.status === 201) {
+      toast(result.data.message);
+    } else if (
+      result != null &&
+      (result.status === 200 || result.status === 500)
+    ) {
+      if (setFormData) setFormData(data);
+    }
+    return true;
   };
-  const handleRegister = () => {
-    document.querySelector("#auth-modal-check").click();
+  const handleLogin = () => {
     document.querySelector("#register-modal-check").click();
+    document.querySelector("#auth-modal-check").click();
   };
   return (
     <div className="w-full p-4">
@@ -44,12 +48,18 @@ export default function LoginForm() {
           <div className="w-full flex flex-col gap-4 mb-4">
             <GradientBorderWrapper>
               <input
+                placeholder="Digite seu nome completo aqui"
+                {...register("fullName")}
+                className="input input-ghost rounded-xl w-full"
+              />
+            </GradientBorderWrapper>
+            <GradientBorderWrapper>
+              <input
                 placeholder="Entre com seu e-mail aqui"
                 {...register("email")}
                 className="input input-ghost rounded-xl w-full"
               />
             </GradientBorderWrapper>
-
             <GradientBorderWrapper>
               <input
                 placeholder="Senha"
@@ -59,16 +69,7 @@ export default function LoginForm() {
               />
             </GradientBorderWrapper>
           </div>
-          <div className="w-full flex justify-end mb-8">
-            <Link href="#">
-              <label
-                htmlFor="auth-modal-check"
-                className="text-yellow-500 cursor-pointer"
-              >
-                Esqueceu a senha?
-              </label>
-            </Link>
-          </div>
+
           <div className="w-full flex flex-col gap-4 text-center">
             <button
               type="submit"
@@ -76,11 +77,11 @@ export default function LoginForm() {
                 loading ? "loading" : ""
               } btn btn-primary rounded-xl capitalize`}
             >
-              Fazer login
+              Fazer Registro
             </button>
             <label>
-              Ainda não tem uma conta?{" "}
-              <Link to="#" onClick={handleRegister}>
+              Você já tem conta?&nbsp;
+              <Link to="#" onClick={handleLogin}>
                 <span className="text-yellow-500">Crie uma conta</span>
               </Link>
             </label>

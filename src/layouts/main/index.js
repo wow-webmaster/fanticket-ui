@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import MainFooter from "./MainFooter";
 import MainHeader from "./MainHeader";
 import {default as LoginModal} from "../../pages/auth/Login";
+import {default as RegisterModal} from "../../pages/auth/Register";
 
 export default function MainLayout() {
   return (
@@ -11,6 +12,7 @@ export default function MainLayout() {
       <div className="flex-1" />
       <MainFooter />
       <LoginModal />
+      <RegisterModal />
     </div>
   );
 }

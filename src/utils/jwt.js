@@ -45,4 +45,14 @@ const setSession = (accessToken) => {
   }
 };
 
-export { isValidToken, setSession};
+const setAcceptLanguage = (lang)=>{
+  if(lang!=null){
+    axios.defaults.headers.common['accept-language'] = `${lang}`;
+  }
+  else{
+    localStorage.removeItem('acceptLanguage');
+    delete axios.defaults.headers.common.acceptLanguage;
+
+  }
+}
+export { isValidToken, setSession,setAcceptLanguage};
