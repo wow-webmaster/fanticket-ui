@@ -6,6 +6,14 @@ export function fDate(date) {
   return format(new Date(date), 'dd MMMM yyyy');
 }
 
+export function displayEventTime(event){
+  if(event.containsTime){
+    return fDateTime(event.dateTime)
+  }
+  else{
+    return fShortDate(event.dateTime)
+  }
+}
 
 export function fShortDate(date) {
   return format(new Date(date), 'dd MMM yyyy');

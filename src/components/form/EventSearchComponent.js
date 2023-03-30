@@ -26,7 +26,10 @@ const SearchWrapper = styled.div`
     linear-gradient(to bottom, #828282, #323232) border-box;
 `;
 
-export default function EventSearchComponent({ small = false }) {
+export default function EventSearchComponent({
+  small = false,
+  handleSelected,
+}) {
   const [visible, setVisible] = useState(false);
   const { events } = useSelector((state) => state.event);
   const [keyword, setKeyword] = useState("");
@@ -34,9 +37,17 @@ export default function EventSearchComponent({ small = false }) {
   const [filteredEvents, setFilteredEvents] = useState([]);
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
-
+  const onSelected = (evt) => {
+    if (handleSelected) {
+      handleSelected(evt);
+      setVisible(false);
+    } else {
+      navigate(`/event/${evt._id}/basic`);
+    }
+  };
   useEffect(() => {
     if (keyword && keyword !== "") {
+      if (!visible) setVisible(true);
       setFilteredEvents(
         events?.filter(
           (e) =>
@@ -63,7 +74,7 @@ export default function EventSearchComponent({ small = false }) {
           <Icon icon="ic:outline-filter-list" width={24} />
         </button>
       </SearchWrapper>
-      {keyword && keyword !== "" && (
+      {keyword && keyword !== "" && visible && (
         <div className="absolute z-40 top-20 w-full left-0 rounded-lg -mt-3 ">
           <GradientBorderWrapper>
             <SimpleBar style={{ maxHeight: "40vh" }}>
@@ -102,20 +113,23 @@ export default function EventSearchComponent({ small = false }) {
                     className="flex justify-between p-2 w-full hover:bg-secondary cursor-pointer rounded-lg"
                     key={index}
                   >
-                    <Link to={`/event/${e._id}/basic`}>
-                      <div className="flex gap-2 items-center cursor-pointer ">
-                        <Icon icon="arcticons:eventyayattendee" width={24} />
-                        <div className="flex flex-col gap-1">
-                          <h6 className="text-lg ">{e.name}</h6>
-                          <h6 className="text-primary ">
-                            {e.containsTime
-                              ? fDateTime(e.dateTime)
-                              : fShortDate(e.dateTime)}
-                            ,{" "}{e.place}
-                          </h6>
-                        </div>
+                    {/* <Link to={`/event/${e._id}/basic`}> */}
+                    <div
+                      className="flex gap-2 items-center cursor-pointer "
+                      onClick={() => onSelected(e)}
+                    >
+                      <Icon icon="arcticons:eventyayattendee" width={24} />
+                      <div className="flex flex-col gap-1">
+                        <h6 className="text-lg ">{e.name}</h6>
+                        <h6 className="text-primary ">
+                          {e.containsTime
+                            ? fDateTime(e.dateTime)
+                            : fShortDate(e.dateTime)}
+                          , {e.place}
+                        </h6>
                       </div>
-                    </Link>
+                    </div>
+                    {/* </Link> */}
                   </div>
                 ))}
               </div>

@@ -3,7 +3,8 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 // slices
 import eventReducer from './slices/event';
- 
+import ticketReducer from './slices/ticket';
+
 // ----------------------------------------------------------------------
 
 const rootPersistConfig = {
@@ -14,7 +15,8 @@ const rootPersistConfig = {
 };
 
 const rootReducer = combineReducers({
-  event:eventReducer
+  event:eventReducer,
+  ticket:ticketReducer
 });
 
 export { rootPersistConfig, rootReducer };

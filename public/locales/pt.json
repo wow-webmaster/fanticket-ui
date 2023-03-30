@@ -50,8 +50,10 @@
     "ticket_ads_location":"Localização",
     "ticket_ads_transfer":"Será transferido para",
     "infomation":"Informações",
-  
-    "more":"Mais"
+    "more":"Mais",
+    "select_event":"Escolha um evento",
+    "select_event_type":"Que tipo de bilhetes você tem?"
+    
 
   },
   "description":{
@@ -71,8 +73,9 @@
     "ticket_avatar":"Nos ajude a colocar uma cara para seu nome! Fãs se sentirão muito mais seguros para comprar ingressos se eles tiverem uma ideia de quem está vendendo.",
     "ticket_finalize":"Tenha certeza que todas as informações estão corretas e coloque seu ingresso à venda!",
     "ticket_share":"Enviaremos uma notificação quando for vendido! Compartilhe seu anúncio nas opções abaixo para aumentar as chances de vender seu(s) ingresso(s).",
-    "origin_price":"O preço original era {{price}}"
-    
+    "origin_price":"O preço original era {{price}}",
+    "select_event":"Para qual evento você quer vender ingressos, {{fullName}}?",
+    "select_event_type":"Lembre-se de que você só pode vender ingressos para um tipo por vez. Se você tiver vários tipos de ingressos, precisará criar uma listagem separada para cada um deles."
   },
   "action":{
     "ads_manage":"Gerencie seu anúncio",

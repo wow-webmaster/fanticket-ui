@@ -41,7 +41,7 @@ export default function BasicProfile() {
       </PageBanner>
       <div className="container">
         <div className="flex flex-col gap-4 items-center p-2">
-          <div className="flex flex-col items-center gap-2 w-full max-w-xl p-2 ">
+          <div className="flex flex-col items-center gap-2 w-full max-w-2xl p-2 ">
             <label className="text-xl w-full text-left">Perfil</label>
             <GradientBorderWrapper>
               <div className="flex flex-col gap-2 w-full p-4">
@@ -164,7 +164,7 @@ export default function BasicProfile() {
               </div>
             </GradientBorderWrapper>
           </div>
-          <div className="flex flex-col items-center gap-2 w-full max-w-xl p-2">
+          <div className="flex flex-col items-center gap-2 w-full max-w-2xl p-2">
             <label className="text-xl w-full text-left">Financeiro</label>
             <GradientBorderWrapper>
               <div className="flex flex-col gap-2 w-full p-4">
@@ -183,7 +183,7 @@ export default function BasicProfile() {
               </div>
             </GradientBorderWrapper>
           </div>
-          <div className="flex flex-col items-center gap-2 w-full max-w-xl p-2">
+          <div className="flex flex-col items-center gap-2 w-full max-w-2xl p-2">
             <label className="text-xl w-full text-left">Configurações</label>
             <GradientBorderWrapper>
               <div className="flex flex-col gap-2 w-full p-4">
@@ -212,7 +212,7 @@ export default function BasicProfile() {
               </div>
             </GradientBorderWrapper>
           </div>
-          <div className="flex justify-center gap-4 w-full max-w-xl mb-8">
+          <div className="flex justify-center gap-4 w-full max-w-2xl mb-8">
             <a href="#" className="underline text-primary">
               Exportar meus dados
             </a>
