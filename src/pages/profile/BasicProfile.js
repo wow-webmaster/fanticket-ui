@@ -9,6 +9,7 @@ import useAuth from "../../hooks/useAuth";
 import ChangeEmailDialog from "../../sections/profile/ChangeEmail";
 import OtpVerifyDialog from "../../sections/profile/VerifyCode";
 import ChangePhoneDialog from "../../sections/profile/ChangePhone";
+import { HOST_API } from "../../config";
 
 export default function BasicProfile() {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ export default function BasicProfile() {
             <div className="flex flex-col items-center mb-4">
               <div className="avatar w-32 h-32 relative">
                 <img
-                  src={`${user?.avatar}`}
+                  src={`${HOST_API}${user?.avatar}`}
                   alt=""
                   className=" rounded-full "
                 />

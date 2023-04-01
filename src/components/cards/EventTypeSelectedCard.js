@@ -24,6 +24,7 @@ export default function EventTypeSelectedCard({
               {displayEventTime({ ...eventType, containsTime: true })}
             </span>
           </div>
+          
         </div>
       </div>
 

@@ -12,109 +12,40 @@ import TicketUpload from "../../sections/ticket/TicketUpload";
 import TicketShareSocial from "../../sections/ticket/TicketShareSocial";
 import TicketAds from "../../sections/ticket/TicketAds";
 import EventChoose from "../../sections/ticket/EventChoose";
-import axios from "../../utils/axios";
-import { API_EVENT, API_TICKET } from "../../config";
 import { dispatch, useSelector } from "../../redux/store";
 import { loadSavedTicket, setSavedTicket } from "../../redux/slices/ticket";
-import { toast } from "react-toastify";
+let initialize = false;
 
 export default function AddTicket() {
-  const [step, setStep] = useState(0);
-
+  const { saved } = useSelector((state) => state.ticket);
+  const [step, setStep] = useState(saved?.ticketSavedStep || 0);
   const { t } = useTranslation();
   const { user, isAuthenticated } = useAuth();
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    console.log("...here");
     dispatch(loadSavedTicket());
-  }, []);
+  }, [step]);
 
-  const onNext = async () => {
-    if (step === 0 && selectedEvent && selectedEvent?.selectedType) {
-      setLoading(true);
-      // save temp
-      axios
-        .post(API_TICKET.saveTicketEvent, {
-          eventId: selectedEvent?._id,
-          typeId: selectedEvent?.selectedType,
-        })
-        .then((res) => {
-          dispatch(setSavedTicket(res.data.data));
-          setStep(1);
-        })
-        .catch((err) => {
-          toast.error(err.toString());
-          console.log(err, " is next error");
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+  useEffect(() => {
+    console.log("...initialize",saved);
+    if (saved && saved?.ticketSavedStep > 0) {
+      if (!initialize) setStep(saved?.ticketSavedStep);
+      initialize = true;
     }
-    // if (step < 7) {
-    //   setStep(step + 1);
-    // }
-  };
-  const onPrev = () => {
-    // console.log(selectedEvent)
-    if (step >= 1) setStep(step - 1);
-  };
-  const onSelectedEvent = (event, eventTypeId) => {
-    if (step === 0) setSelectedEvent({ ...event, selectedType: eventTypeId });
-  };
-  const onDiscardEvent = () => {
-    if (step === 0) setSelectedEvent(null);
-  };
+  }, [saved]);
   return (
     <Page title="Add Ticket">
       <PageBanner>
         <div className="container p-4 mb-8">
-          {step === 0 && (
-            <EventChoose
-              handleSelectedEvent={onSelectedEvent}
-              handleDiscardEvent={onDiscardEvent}
-            />
-          )}
-          {step === 1 && <TicketUpload/>}
-          {step === 2 && <TicketNote />}
-          {step === 3 && <TicketPrice />}
-          {step === 4 && <TicketAvatar />}
-          {step === 5 && <TicketFinalize onNext={onNext} onPrev={onPrev} />}
+          {step === 0 && <EventChoose setStep={setStep} />}
+          {step === 1 && <TicketUpload setStep={setStep} />}
+          {step === 2 && <TicketNote setStep={setStep} />}
+          {step === 3 && <TicketPrice setStep={setStep} />}
+          {step === 4 && <TicketAvatar setStep={setStep} />}
+          {step === 5 && <TicketFinalize setStep={setStep} />}
           {step === 6 && <TicketShareSocial />}
           {step === 7 && <TicketAds />}
-
-          {/* actions */}
-          {step !== 5 && (
-            <div className="flex flex-col gap-8 justify-center items-center">
-              <div className="max-w-2xl w-full mb-8">
-                <div className="h-6"></div>
-
-                <div className="w-full flex justify-between">
-                  <button
-                    disabled={step === 0}
-                    className="btn btn-primary btn-outline px-8 capitalize "
-                    onClick={onPrev}
-                  >
-                    {t("action.back")}
-                  </button>
-                  <button
-                    disabled={
-                      step === 0
-                        ? selectedEvent === null ||
-                          selectedEvent?.selectedType === null
-                        : false
-                    }
-                    className={`btn btn-primary px-8 capitalize ${
-                      loading ? "loading" : ""
-                    }`}
-                    onClick={onNext}
-                  >
-                    {t("action.continue")}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </PageBanner>
       <ChangePhoneDialog user={user} isAdditionalPhone />

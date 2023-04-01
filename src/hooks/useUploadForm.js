@@ -4,11 +4,12 @@ import axios from "../utils/axios";
 export const useUploadForm = (url) => {
   const [isError, setIsError] = useState(false);
   const [progress, setProgress] = useState(0);
-
+  const [serverMessage, setServerMessage] = useState("");
+  const [uploadResult, setUploadResult] = useState(null);
   const uploadForm = async (formData) => {
     setIsError(false);
     try {
-      await axios.post(url, formData, {
+      const res = await axios.post(url, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -24,11 +25,13 @@ export const useUploadForm = (url) => {
           setProgress(progress);
         },
       });
+      setUploadResult(res.data?.data || null);
     } catch (err) {
       setIsError(true);
+      setServerMessage(err?.message || "File upload error");
       console.log(err);
     }
   };
 
-  return { uploadForm, isError, progress };
+  return { uploadForm, isError, progress, serverMessage,uploadResult };
 };

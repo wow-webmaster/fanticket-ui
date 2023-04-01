@@ -25,10 +25,10 @@ export default function RegisterForm({ setFormData }) {
     console.log("register form....................")
     const result = await signup(data.email, data.fullName, data.password);
     setLoading(false);
-    if (result != null && result.status === 201) {
+    if (result !==null && result.status === 201) {
       toast(result.data.message);
     } else if (
-      result != null &&
+      result !==null &&
       (result.status === 200 || result.status === 500)
     ) {
       if (setFormData) setFormData(data);

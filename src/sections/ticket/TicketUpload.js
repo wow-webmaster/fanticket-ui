@@ -5,13 +5,17 @@ import DropzoneFileUpload from "../../components/form/DropzoneFileUpload";
 import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 import { API_TICKET } from "../../config";
 import { useUploadForm } from "../../hooks/useUploadForm";
-import { useSelector } from "../../redux/store";
+import { setSavedTicket } from "../../redux/slices/ticket";
+import { dispatch, useSelector } from "../../redux/store";
 
-export default function TicketUpload() {
+export default function TicketUpload({ setStep }) {
   const { saved } = useSelector((state) => state.ticket);
   const { t } = useTranslation();
   const [selectedFile, setSelectedFile] = useState(saved?.originFile);
-  const { uploadForm, progress, isError } = useUploadForm(
+  const [disabledForward, setDisabledForward] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const { uploadForm, progress, isError, serverMessage, uploadResult } = useUploadForm(
     API_TICKET.uploadFile
   );
   const handleDropFile = useCallback(async (acceptedFiles) => {
@@ -22,10 +26,29 @@ export default function TicketUpload() {
     form.append("originFile", acceptedFiles[0]?.path);
 
     uploadForm(form);
-  }, []);
+  }, [saved]);
   useEffect(() => {
     // console.log("***********", progress);
-  }, [progress]);
+    if (progress === 100 && !isError && setDisabledForward) {
+      setDisabledForward(false);
+    }
+  }, [progress, isError]);
+  useEffect(()=>{
+    if(uploadResult && uploadResult!=null){
+      dispatch(setSavedTicket(uploadResult));
+    }
+  },[uploadResult])
+
+  useEffect(() => {
+    setDisabledForward(saved?.originFile === "");
+  }, [saved]);
+
+  const onNext = () => {
+    setStep(2);
+  };
+  const onPrev = () => {
+    setStep(0);
+  };
   return (
     <div className="flex flex-col gap-8 justify-center items-center">
       <div className="flex flex-col gap-1 max-w-2xl w-full">
@@ -67,10 +90,40 @@ export default function TicketUpload() {
                 ></progress>
               </div>
             )}
+            {isError && serverMessage !== "" && (
+              <div className="w-full p-2">
+                <span className="text-error">{serverMessage}</span>
+              </div>
+            )}
           </div>
         </GradientBorderWrapper>
         <div className="h-6"></div>
         <DropzoneFileUpload onDrop={handleDropFile} />
+      </div>
+
+      {/* action buttons */}
+      <div className="flex flex-col gap-8 justify-center items-center w-full">
+        <div className="max-w-2xl w-full mb-8">
+          <div className="h-6"></div>
+
+          <div className="w-full flex justify-between">
+            <button
+              className={`btn btn-primary px-8 capitalize btn-outline`}
+              onClick={onPrev}
+            >
+              {t("action.back")}
+            </button>
+            <button
+              disabled={disabledForward}
+              className={`btn btn-primary px-8 capitalize ${
+                loading ? "loading" : ""
+              }`}
+              onClick={onNext}
+            >
+              {t("action.continue")}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

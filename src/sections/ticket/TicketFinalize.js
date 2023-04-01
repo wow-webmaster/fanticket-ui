@@ -1,19 +1,49 @@
 import { Icon } from "@iconify/react";
-import { useTranslation } from "react-i18next";
-import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 
-export default function TicketFinalize({onNext, onPrev}) {
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
+import useAuth from "../../hooks/useAuth";
+import { useSelector } from "../../redux/store";
+import { fNumber } from "../../utils/formatNumber";
+import { displayEventTime } from "../../utils/formatTime";
+import ResetConfirmModal from "./ResetConfirmModal";
+import axios from "../../utils/axios";
+import { API_TICKET } from "../../config";
+
+export default function TicketFinalize({ setStep }) {
+  const { user } = useAuth();
+
   const { t } = useTranslation();
-  const onReset = ()=>{
-    if(onPrev){
-      onPrev();
+  const { saved } = useSelector((state) => state.ticket);
+  const [event, setEvent] = useState(saved?.event);
+  const onReset = () => {
+    document.querySelector("#reset-confirm-modal").click();
+  };
+
+  const onCreateAD = () => {
+    axios
+      .post(API_TICKET.finializeTicket, { ticketId: saved?._id })
+      .then((res) => {
+        setStep(6);
+      })
+      .catch((err) => {});
+  };
+  const onClose = (action) => {
+    document.querySelector("#reset-confirm-modal").click();
+    if (action !== "cancel") setStep(0);
+  };
+  useEffect(() => {
+    if (saved) {
+      console.log(saved);
+      const _event = saved?.event;
+      const eventType = _event.types?.filter(
+        (t) => t.typeId === saved?.eventTypeId
+      )[0];
+      setEvent({ ..._event, eventType });
     }
-  }
-  const onCreateAD = ()=>{
-    if(onNext){
-      onNext();
-    }
-  }
+  }, [saved]);
   return (
     <div className="flex flex-col gap-8 justify-center items-center">
       <div className="flex flex-col gap-1 max-w-2xl w-full">
@@ -46,12 +76,18 @@ export default function TicketFinalize({onNext, onPrev}) {
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.event")}</h5>
               <p className="text-stone-400 text-sm">
-                Time Warp Brasil 2022 <br />
-                Sábado (Individual)
+                {event?.name} <br />
+                {event?.eventType?.name}
                 <br />
-                Seg, 10 de Setembro São Paulo
+                {displayEventTime({ ...saved, containsTime: true })},{" "}
+                {event?.place}
               </p>
-              <span className="text-primary underline">{t("action.edit")}</span>
+              <span
+                className="text-primary underline cursor-pointer "
+                onClick={() => setStep(0)}
+              >
+                {t("action.edit")}
+              </span>
             </div>
             <Icon
               icon="material-symbols:check-small-rounded"
@@ -64,7 +100,12 @@ export default function TicketFinalize({onNext, onPrev}) {
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.ticket")}</h5>
               <p className="text-stone-400 text-sm">1 ingresso à venda</p>
-              <span className="text-primary underline">{t("action.edit")}</span>
+              <span
+                className="text-primary underline cursor-pointer"
+                onClick={() => setStep(1)}
+              >
+                {t("action.edit")}
+              </span>
             </div>
             <Icon
               icon="material-symbols:check-small-rounded"
@@ -77,9 +118,14 @@ export default function TicketFinalize({onNext, onPrev}) {
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.ticket_detail")}</h5>
               <p className="text-stone-400 text-sm">
-                Informações adicionais: 4º Lote - Meia Entrada Ticket
+                Informações adicionais: {saved?.seat}
               </p>
-              <span className="text-primary underline">{t("action.edit")}</span>
+              <span
+                className="text-primary underline cursor-pointer"
+                onClick={() => setStep(3)}
+              >
+                {t("action.edit")}
+              </span>
             </div>
             <Icon
               icon="material-symbols:check-small-rounded"
@@ -92,9 +138,15 @@ export default function TicketFinalize({onNext, onPrev}) {
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.ticket_detail")}</h5>
               <p className="text-stone-400 text-sm">
-                R$264,00 por ingresso (você receberá R$250,80 por ingresso)
+                R$ {fNumber(saved?.originPrice * 1.08)} por ingresso (você
+                receberá R$ {fNumber(saved?.originPrice * 1.05)} por ingresso)
               </p>
-              <span className="text-primary underline">{t("action.edit")}</span>
+              <span
+                className="text-primary underline cursor-pointer"
+                onClick={() => setStep(3)}
+              >
+                {t("action.edit")}
+              </span>
             </div>
             <Icon
               icon="material-symbols:check-small-rounded"
@@ -106,8 +158,14 @@ export default function TicketFinalize({onNext, onPrev}) {
           <div className="flex gap-2 justify-between p-4 items-center">
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.phone_number")}</h5>
-              <p className="text-stone-400 text-sm">+5551999999999</p>
-              <label htmlFor="phone-modal-check" className="text-primary underline cursor-pointer">{t("action.edit")}</label>
+              <p className="text-stone-400 text-sm">{user?.phoneNumber}</p>
+              <Link
+                // htmlFor="phone-modal-check"
+                className="text-primary underline cursor-pointer"
+                to={`/profile`}
+              >
+                {t("action.edit")}
+              </Link>
             </div>
             <Icon
               icon="material-symbols:check-small-rounded"
@@ -121,7 +179,13 @@ export default function TicketFinalize({onNext, onPrev}) {
             <div className="flex flex-col gap-1">
               <h5 className="text-lg font-bold">{t("title.bank_account")}</h5>
               <p className="text-stone-400 text-sm">341 - 9649 - **** 4355</p>
-              <span className="text-primary underline">{t("action.edit")}</span>
+              <Link
+                // htmlFor="phone-modal-check"
+                className="text-primary underline cursor-pointer"
+                to={`/profile`}
+              >
+                {t("action.edit")}
+              </Link>
             </div>
             <Icon
               icon="material-symbols:check-small-rounded"
@@ -139,7 +203,7 @@ export default function TicketFinalize({onNext, onPrev}) {
               <p className="text-stone-400 text-sm">Público em FanTicket</p>
               <span className="text-primary underline">{t("action.edit")}</span>
             </div>
-            <img src="/images/logo/logo-image.png" className="w-6 h-6" alt= "" />
+            <img src="/images/logo/logo-image.png" className="w-6 h-6" alt="" />
           </div>
         </GradientBorderWrapper>
       </div>
@@ -161,6 +225,7 @@ export default function TicketFinalize({onNext, onPrev}) {
           </div>
         </div>
       </div>
+      <ResetConfirmModal ticketId={saved?._id} onClose={onClose} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 export const HOST_API = "http://localhost:5600/";
-// export const HOST_API = "https://fanticket.onrender.com/";
+// export const HOST_API = "https://fanticket.herokuapp.com/";
 export const API_AUTH = {
     signup:"/api/v1/auth/signup",
     login:"/api/v1/auth/login",
@@ -15,4 +15,9 @@ export const API_TICKET = {
     saveTicketEvent:"/api/v1/ticket/save-ticket-event",
     getSavedTicket:"/api/v1/ticket/saved-ticket",
     uploadFile:"/api/v1/ticket/upload",
+    saveNote:"/api/v1/ticket/save-note",
+    saveTicketPrcie:"/api/v1/ticket/save-price",
+    uploadTicketAvatar:"/api/v1/ticket/upload-avatar",
+    resetTicket:"/api/v1/ticket/reset",
+    finializeTicket:"/api/v1/ticket/finalize",
 }

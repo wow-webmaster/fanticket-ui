@@ -48,6 +48,7 @@ export function loadSavedTicket() {
       axios
         .get(API_TICKET.getSavedTicket)
         .then((res) => {
+          
           dispatch(slice.actions.setSavedTicket(res.data.data));
         })
         .catch((err) => {
