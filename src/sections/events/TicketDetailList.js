@@ -5,12 +5,12 @@ import EventTicketCard from "../../components/cards/EventTicketCard";
 import EventTicketDetailCard from "../../components/cards/EventTicketDetailCard";
 import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapper";
 
-export default function TicketDetailList({ tickets, event }) {
-  console.log(event);
+export default function TicketDetailList({ tickets, event, eventType }) {
+  console.log(event, tickets);
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const availableTickets = tickets.filter((t) => !t.sold);
-  const soldTickets = tickets.filter((t) => t.sold);
+  const availableTickets = tickets.filter((t) => t.status === "inprogress");
+  const soldTickets = tickets.filter((t) => t.status === "sold");
   return (
     <div className="flex flex-col gap-8 w-full">
       <div className="flex w-full justify-between">
@@ -48,11 +48,14 @@ export default function TicketDetailList({ tickets, event }) {
         </GradientBorderWrapper>
       </div>
       <div className="flex flex-col gap-4">
-        <h5 className="text-3xl">Disponíveis</h5>
+        <h5 className="text-3xl">
+          Disponíveis -{" "}
+          <span className="text-primary">{eventType?.name || ""}</span>
+        </h5>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {availableTickets?.map((t, index) => (
             <div key={index}>
-              <EventTicketDetailCard eventType={event?.name} ticket={t} />
+              <EventTicketDetailCard eventType={eventType} ticket={t} />
             </div>
           ))}
         </div>
@@ -62,9 +65,12 @@ export default function TicketDetailList({ tickets, event }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {soldTickets?.map((t, index) => (
             <div key={index}>
-              <EventTicketDetailCard eventType={event?.name} ticket={t} />
+              <EventTicketDetailCard eventType={eventType} ticket={t} />
             </div>
           ))}
+          {soldTickets.length === 0 && <div className="w-full flex">
+            {t('description.no_data')}
+            </div>}
         </div>
       </div>
     </div>

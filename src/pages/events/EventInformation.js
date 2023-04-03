@@ -8,18 +8,29 @@ import EventInformationSection from "../../sections/events/EventInfomationSectio
 import EventMoreSection from "../../sections/events/EventMore";
 import TicketDetailList from "../../sections/events/TicketDetailList";
 import TicketList from "../../sections/events/TicketList";
-import { ALL_EVENTS } from "../../_mocks";
+import { dispatch, useSelector } from "../../redux/store";
+import axios from "../../utils/axios";
+import { API_EVENT } from "../../config";
 
 export default function EventInformation() {
   const { eventId, tabId } = useParams();
+  const {events} = useSelector((state)=>state.event);
   const [eventTypeId, setEventTypeId] = useState();
   const [tickets, setTickets] = useState([]);
   const [currentEvent, setCurrentEvent] = useState();
 
   useEffect(() => {
     try {
-      const _event = ALL_EVENTS.filter((e) => e._id === eventId)[0];
-      setCurrentEvent(_event);
+      if(eventId){
+        axios.get(`${API_EVENT.getEventDetail}/${eventId}`).then(res=>{
+          setCurrentEvent(res.data.data);
+        }).catch(err=>{
+          console.log(err);
+        }).finally(()=>{
+
+        });
+      }
+      
     } catch (err) {
       console.log(err);
     }
@@ -28,9 +39,11 @@ export default function EventInformation() {
   const onDetailAction = (eventTypeId) => {
     setEventTypeId(eventTypeId);
     if (currentEvent && currentEvent?.tickets && eventTypeId) {
-      setTickets(currentEvent.tickets.filter((e) => e.type === eventTypeId));
+      setTickets(currentEvent.tickets.filter((t) => t.eventTypeId === eventTypeId));
     }
   };
+
+    
   return (
     <Page title="Event Detail">
       <PageBanner>
@@ -68,11 +81,11 @@ export default function EventInformation() {
                   </div>
                   <div className="flex gap-2">
                     <div className="flex justify-center flex-col items-center">
-                      <h5 className="text-2xl">16</h5>
+                      <h5 className="text-2xl">{currentEvent?.tickets?.filter((t)=>(t.status === 'inprogress')).length}</h5>
                       <h6 className="text-stone-400">Disponíveis</h6>
                     </div>
                     <div className="flex justify-center flex-col items-center">
-                      <h5 className="text-2xl">6</h5>
+                      <h5 className="text-2xl">{currentEvent?.tickets?.filter((t)=>(t.status === 'sold')).length}</h5>
                       <h6 className="text-stone-400">Vendidos</h6>
                     </div>
                     <div className="flex justify-center flex-col items-center">
@@ -88,7 +101,7 @@ export default function EventInformation() {
                   />
                 )}
                 {tabId === "basic" && eventTypeId && tickets && (
-                  <TicketDetailList tickets={tickets} event={currentEvent} />
+                  <TicketDetailList tickets={tickets} event={currentEvent} eventType = {currentEvent?.types?.filter((t)=>t.typeId === eventTypeId)[0]} />
                 )}
                 {tabId === "infomation" && <EventInformationSection />}
                 {tabId === "more" && <EventMoreSection />}

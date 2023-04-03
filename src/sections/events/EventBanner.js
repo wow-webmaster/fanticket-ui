@@ -9,8 +9,8 @@ export default function EventBanner({event}){
             </div>
             <div className="p-2">
                 <h4 className="text-3xl font-bold mb-4">{event.name}</h4>
-                <h6 className="text-stone-400 text-lg">{fDescriptionTypeDate(event?.date || event?.start) }</h6>
-                <h6 className="text-stone-400 text-lg">{event.place}, {event.city}</h6>
+                <h6 className="text-stone-400 text-lg">{fDescriptionTypeDate(event?.dateTime || event?.start, event?.containsTime) }</h6>
+                <h6 className="text-stone-400 text-lg">{event.place}</h6>
             </div>
 
         </div>

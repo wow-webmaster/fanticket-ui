@@ -9,6 +9,7 @@ export const API_AUTH = {
 export const API_EVENT = {
     addNewEvent:"/api/v1/event/add-event",
     getAvailabelEvent:"/api/v1/event/get-available-events",
+    getEventDetail:"/api/v1/event/detail",
 }
 
 export const API_TICKET = {
@@ -20,4 +21,5 @@ export const API_TICKET = {
     uploadTicketAvatar:"/api/v1/ticket/upload-avatar",
     resetTicket:"/api/v1/ticket/reset",
     finializeTicket:"/api/v1/ticket/finalize",
+    getTicketDetail:"/api/v1/ticket/detail",
 }

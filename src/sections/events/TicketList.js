@@ -7,9 +7,12 @@ import GradientBorderWrapper from "../../components/wrappers/GradientBorderWrapp
 export default function TicketList({ event, onDetailAction }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const calculateTicketCount = (eventType) => {
+    return event?.tickets?.filter((t) => t.eventTypeId === eventType.typeId);
+  };
   const onAction = (eventTypeId) => {
-    if(onDetailAction){
-        onDetailAction(eventTypeId);
+    if (onDetailAction) {
+      onDetailAction(eventTypeId);
     }
   };
   return (
@@ -48,24 +51,17 @@ export default function TicketList({ event, onDetailAction }) {
       <div className="flex w-full flex-col gap-4 ">
         <h5 className="text-3xl">Ingressos de entrada</h5>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <div className="">
-            <EventTicketCard
-              eventTypeId="event_type_id"
-              count={6}
-              date={new Date()}
-              onAction={onAction}
-              type={"Pista"}
-            />
-          </div>
-          <div className="">
-            <EventTicketCard
-              eventTypeId="event_type_id"
-              count={0}
-              date={new Date()}
-              onAction={onAction}
-              type={"Área VIP"}
-            />
-          </div>
+          {event?.types?.map((type, index) => (
+            <div className="" key={index}>
+              <EventTicketCard
+                eventTypeId="event_type_id"
+                count={calculateTicketCount(type).length}
+                date={type?.dateTime}
+                onAction={()=>onAction(type.typeId)}
+                type={type?.name}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

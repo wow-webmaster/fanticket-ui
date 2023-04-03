@@ -32,15 +32,23 @@ export function fDateTimeSuffix(date) {
 }
 
 export function fToNow(date) {
-  return formatDistanceToNow(new Date(date), {
-    addSuffix: true
-  });
-}
-export function fDescriptionTypeDate(date){
-  console.log(date, "date");
   try{
-    
-    return format(new Date(date),"EEEE dd, MMMM, yyyy hh:mm p");
+    return formatDistanceToNow(new Date(date), {
+      addSuffix: true
+    });
+  }
+  catch(err){
+    return "Invaild Date";
+  }
+  
+}
+export function fDescriptionTypeDate(date, isTime = true){
+  // console.log(date, "date");
+  try{
+    if(isTime)
+    return format(new Date(date),"EEEE dd, MMMM, yyyy p");
+    else
+    return format(new Date(date),"EEEE dd, MMMM, yyyy");
   }
   catch(err){
     return(`${date}`)
